@@ -1,0 +1,35 @@
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: ;
+
+
+    --border: var(--border-width-s) solid var(--color-black-15);
+
+    --border-radius-l: 12px;
+    --border-radius-m: 10px;
+    --border-radius-s: 8px;
+    --border-radius-xs: 6px;
+    --border-radius-xxs: 5px;
+    --border-radius-xxxs: 4px;
+
+    --border-width-l: 4px;
+    --border-width-m: 3px;
+    --border-width-s: 1px;
+
+
+    --font-family-main: 'Satoshi', sans-serif;
+    --font-family-second: 'Integralcf', sans-serif;
+
+
+    --container-width: #{fluid-to-laptop($container-desktop-width, $container-laptop-width)};
+
+    --container-padding-x: 16px;
+
+
+    --section-padding-y: #{fluid(75,40)};
+
+
+    --transition-duration: 0.2s;
+    --transition-duration-longer: 0.4s;
+}
