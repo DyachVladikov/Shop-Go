@@ -1,0 +1,47 @@
+
+.header {
+    width: 100%;
+    background: var(--color-black);
+
+
+    &__inner {
+        padding-block: 10px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: fluid(14,12);
+    }
+
+    &__signUp {
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+
+        &-title {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            color: white;
+        }
+
+
+        &--link {
+            color: var(--color-white);
+            background: transparent;
+            padding: 0;
+            align-items: center;
+        }
+
+        &-button {
+            position: absolute;
+            right: 0px;
+            padding: 0;
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

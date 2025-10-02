@@ -1,7 +1,11 @@
+
 @import './helpers/index.scss';
 @import './fonts.scss';
 @import './variables.scss';
 @import './utils.scss';
+@import '@a1rth/css-normalize/index.css';
+
+
 
 html {
     &.is-lock {

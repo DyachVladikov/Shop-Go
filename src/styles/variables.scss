@@ -1,17 +1,15 @@
 :root {
     --color-white: #fff;
     --color-black: #000;
-    --color-gray: ;
+    --color-gray: #F0F0F0;
+    --color-black-transparent: rgba(0,0,0,0.1)
 
 
-    --border: var(--border-width-s) solid var(--color-black-15);
+    --border: var(--border-width-s) solid var(--color-black-transparent);
 
-    --border-radius-l: 12px;
-    --border-radius-m: 10px;
+    --border-radius-l: 62px;
+    --border-radius-m: 20px;
     --border-radius-s: 8px;
-    --border-radius-xs: 6px;
-    --border-radius-xxs: 5px;
-    --border-radius-xxxs: 4px;
 
     --border-width-l: 4px;
     --border-width-m: 3px;
