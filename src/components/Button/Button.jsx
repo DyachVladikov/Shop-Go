@@ -7,31 +7,38 @@ const Button = (props) => {
         title,
         isLabelHidden,
         href,
-        onlyIcon,
-        icon,
+        onlyIcon = false,
+        iconLink,
         className,
         label,
         type,
+        onClick,
+        children,
+        mode, // "small" || "modal"
     } = props
 
     const Component = href != undefined ? "a" : "button"
     const linkProps = Component === "a" ? {href} : [""]
-    const buttonProps = Component === "button" ? {type} : [""]
+    const buttonProps = Component === "button" ? {type,onClick} : [""]
     const currentProps = Component === "a" ? linkProps : buttonProps
+
+    const ComponentName = Component === "a" ? "button-link" : "button"
 
     return(
         <Component
         {...currentProps}
-        className={classNames("button", className, {"button--transparent" : onlyIcon})}
+        className={classNames(
+            ComponentName, className, {"button__icon" : onlyIcon}, {[`button--${mode}`] : mode}
+        )}
+        title={title}
         >
-            {!isLabelHidden && (
+            {(!isLabelHidden || !onlyIcon) && (
                 <span>{label}</span>
             )}
             {onlyIcon &&(
-                <div className="button__icon">
-                    <img className="button__icon-item" src={icon} />
-                </div>
+                <img className={classNames("button__icon-item", {[`button__icon--${mode}`] : mode})} src={iconLink} />
             )}
+            {children} 
         </Component>
     )
 }

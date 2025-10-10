@@ -1,31 +1,114 @@
-
 .header {
     width: 100%;
-    background: var(--color-black);
+    background: var(--color-white);
+    height: 40px; 
+    position: sticky;
+
+    &__modal {
+
+        &:open {
+        display: flex;
+
+        }
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        background: var(--color-gray);
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+
+        &-navigation {
+            height: 100%;
+            padding-block: 40px;
+            
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                row-gap: fluid(100,50);
+            }
+
+            &-item {
+                border-radius: var(--border-radius-l);
+                padding: 5px 20px;
+                transition-duration: var(--transition-duration);
+
+
+                @include hover {
+                    background: var(--color-black);
+                    color: white;
+                }
+            }
+
+            &-item span {
+                font-size: fluid(70,50)
+            }
+            
+        }
+    }
+
+    &__burger-button {
+        align-self: end;
+        min-height: 44px;
+        min-width: 44px;
+    }
 
 
     &__inner {
-        padding-block: 10px;
+        padding-block: 24px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         font-weight: 400;
         font-size: fluid(14,12);
+
+        @include middle {
+            padding-inline: 16px !important;
+        }
+
+        @include mobile {
+            padding: 5px 5px !important;
+        }
+       
     }
 
     &__signUp {
         height: 40px;
-        display: flex;
-        flex-direction: row;
-        gap: 5px;
-        position: relative;
-        align-items: center;
-        justify-content: center;
+        background: var(--color-black);
+
+        &-content {
+            position: relative;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+
+            @include mobile {
+                justify-content: start;
+            }
+        }
 
         &-title {
             display: flex;
             gap: 5px;
             align-items: center;
             color: white;
+            font-size: 14px;
+
+            span {
+                @include mobile {
+                    font-size: 12px;
+                }
+            }
+
+            
         }
 
 
@@ -34,14 +117,98 @@
             background: transparent;
             padding: 0;
             align-items: center;
+            position: relative;
+            font-size: 14px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                color: inherit;
+                bottom: 0;
+                background: var(--color-white);
+                border-radius: var(border-radius-s);
+            }
         }
 
         &-button {
             position: absolute;
-            right: 0px;
+            right: 0%;
             padding: 0;
-            width: 44px;
-            height: 44px;
+        }
+
+        &-wrapper {
+            padding-inline:10px;
         }
     }
+
+    &__body {
+        display: flex;
+        flex-direction: row;
+        column-gap: fluid(40,20);
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+        }
+        
+    }
+
+    &__logo {
+        min-width: 126px;
+        min-height: 18px;
+        display: flex;
+        height: 44px;
+        align-items: center;
+    }
+
+    &__navigation {
+
+        &-list {
+            display: inline-flex;
+            column-gap: 24px;
+            text-wrap: nowrap;
+        }
+
+        &-link {
+            font-size: fluid(16,14);
+        }
+
+        @include tablet {
+            order: -1;
+            display: none;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        column-gap: 20px;
+        max-width: 555;
+        
+        @include middle {
+            max-width: 400px;
+        }
+
+        &-icons {
+            display: flex;
+        }
+
+        &-search {
+
+            @include mobile {
+                width: 50px !important;
+                background: transparent !important;
+                fill: black;
+            }
+            
+        }
+    }
+
+
 }
