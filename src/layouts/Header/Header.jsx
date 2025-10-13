@@ -4,12 +4,29 @@ import closeButton from "@/assets/icons/closeButton.svg"
 import { useState } from "react"
 import InputForm from "@/components/InputForm"
 
-const Header = (props) => {
+const Header = () => {
 
     const [isreg, setisReg] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const navigationList = ["Shop", "On Scale", "New Arrivals", "Brands"]
+    const navigationList = [
+        {
+            label: "Shop",
+            href: "/"
+        },
+         {
+            label: "On Scale",
+            href: "/"
+        },
+         {
+            label: "New Arrivals",
+            href: "/"
+        },
+         {
+            label: "Brands",
+            href: "/"
+        },
+    ]
 
     function CloseSignForm() {
         setisReg(false)
@@ -20,7 +37,7 @@ const Header = (props) => {
     }
     
     return (
-        <div className="header">
+        <header className="header">
             <dialog className="header__modal" open={isModalOpen}>
                 <Button className="header__burger-button" 
                     type="button" 
@@ -35,8 +52,7 @@ const Header = (props) => {
                         <ul className="header__modal-navigation-list">
                             {navigationList.map((navigationItem, index) => (
                                 <li className="header__modal-navigation-item" key={index}>
-                                    <Button className="header__navigation-link" href= "/"
-                                    label={navigationItem} type="button">
+                                    <Button className="header__navigation-link" {...navigationItem} type="button">
                                     </Button>
                                 </li>
                             ))}
@@ -93,8 +109,7 @@ const Header = (props) => {
                         <ul className="header__navigation-list">
                             {navigationList.map((navigationItem, index) => (
                                 <li className="header__navigation-item" key={index}>
-                                    <Button className="header__navigation-link" href= "/"
-                                    label={navigationItem} type="button">
+                                    <Button className="header__navigation-link" {...navigationItem} type="button">
                                     </Button>
                                 </li>
                             ))}
@@ -125,7 +140,7 @@ const Header = (props) => {
                     </div> 
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
