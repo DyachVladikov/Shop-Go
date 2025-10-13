@@ -35,7 +35,7 @@ const Banner = () => {
                 <p className="banner__body-description">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
                 <Button 
                 title = "Shop Now"
-                className = "banner__button"
+                className = "banner__body-button"
                 label = "Shop Now"
                 type = "link"
                 mode = "black"
@@ -55,7 +55,7 @@ const Banner = () => {
             <div className="banner__footer">
                 <div className="banner__footer-wrapper container">
                     {developers.map((path,index) => (
-                        <img src={path} key = {index}/>
+                        <img className="banner__footer-image" src={path} key = {index}/>
                     ))}
                 </div>
             </div>

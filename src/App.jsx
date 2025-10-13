@@ -2,6 +2,7 @@ import "@/styles/globals.scss"
 import Header from "./layouts/Header"
 import Content from "./layouts/Content/Content"
 import { Outlet, useLocation } from "react-router-dom";
+import Footer from "./layouts/Footer";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Content className={path}>
         <Outlet />
       </Content>
+      <Footer />
     </>
   )
 }

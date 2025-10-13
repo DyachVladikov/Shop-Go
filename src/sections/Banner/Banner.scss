@@ -1,13 +1,32 @@
 .banner {
     background-color: var(--color-gray);
     width: 100%;
-    height: 90vh;
 
     &__wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+         @include tablet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }   
+          
+        @include middle{
+            padding-inline: 16px;
+        }
+        @include mobile {
+            padding-inline: 0;
+        }
+        
     }
     
+    &-tag {
+
+        @include mobile {
+            padding-right: 16px !important;
+        }
+    }
 
     &__body {
 
@@ -17,58 +36,132 @@
 
         &-description {
             padding-block: fluid(32,20);
+            color: var(--color-black-transparent-06);
             max-width: 545px;
+            font-size: fluid(14,12);
+        }
+
+        &-button {
+            @include mobile {
+                width: 100%;
+            }
         }
         &-tags {
             display: flex;
             column-gap: fluid(32,28);
             margin-top: fluid(48,20);
+
+            @include mobile-s {
+                > * {
+                    &::after {
+                        content: none !important;
+                    }
+                    padding: 0 !important;
+                }
+            }
+
+            
+
+            @include mobile {
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 12px;
+            }
         }
-        max-width: 640px;
+
+        @include mobile {
+            padding-inline: 16px;
+        }
     }
 
     &__images {
         position: relative;
+        max-width: 720px;
+        /* width: fluid(720,500); */
+
+        @include tablet {
+            width: fluid(720,500);
+        }
+
+        @include mobile {
+            width: auto;
+        }
+
+
         &-people {
-            max-height: 663px;
+            /* max-height: 663px; */
             width: 100%;
             object-fit: cover;
-            min-height: 663px;
+            min-height: 580px;
 
             @include laptop {
-                object-fit: cover;
+                
             }
         }
     
         &-star1 {
             position: absolute;
-            top:50%;
+            top:35%;
             left: 0%;
             width: fluid(56,44);
             @include square(width);
+
         }
         &-star2 {
             position: absolute;
             top:12%;
-            right:5%;
+            right:2%;
             width: fluid(104,76);
             @include square(width);
+        }
+
+        @include mobile {
+            padding-inline: 0;
         }
     }
 
     &__footer {
         background: var(--color-black);
-        height: 122px;
+        height: auto;
         display: flex;
         align-self: center;
 
         &-wrapper {
             padding-inline: fluid(100,16);
-            display: inline-flex;
-            padding-block: 44px;
+            display: flex;
+            
+            padding-block: fluid(40,16);
             align-items: center;
             justify-content: space-between;
             column-gap: 34px;
+
+            @include tablet {
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 22px;
+                column-gap: 30px;
+            }  
+            
+            @include middle {
+                padding-inline: 16px;
+            }
+            @include mobile-s {
+                padding-inline: 0;
+            }
+        }
+
+        &-image {
+            
+            @include tablet {
+                width: 120px;
+                max-height: 25px;
+                object-fit: contain;
+            }
+
+            @include mobile {
+                width: auto;
+            }
+            
         }
     }
 }
