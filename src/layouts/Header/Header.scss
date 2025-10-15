@@ -95,6 +95,10 @@
             padding-inline: 16px !important;
         }
 
+        @include middle {
+            padding-block: 10px;
+        }
+
         @include mobile {
             padding: 5px 5px !important;
         }

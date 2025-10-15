@@ -1,0 +1,177 @@
+.footer {
+    
+    --footerColumns: 4;
+
+    @include tablet {
+        --footerColumns: 2;
+    }
+    
+
+    background: var(--color-gray);
+    margin-top: 170px;
+    position: relative;
+
+    &__inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 140px;
+
+        @include tablet {
+            padding-top:177px;
+        }
+        @include mobile {
+            padding-inline: 18px;
+        }
+    }
+
+    &__banner {
+        position: absolute;
+        top: -90px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        &-wrapper {
+            display: flex;
+            column-gap: 200px;
+            background: var(--color-black);
+            border-radius: var(--border-radius-m);
+            height: 180px;
+            padding: fluid(36,30) fluid(64,24);
+
+            &-label {
+                color: var(--color-white);
+                line-height: 120%;
+            }
+
+            &-actions {
+                display: flex;
+                flex-direction: column;
+                row-gap: fluid(14.12);
+                align-items: center;
+            }
+            &-input, &-subscribe-button {
+                width: fluid(350,310);
+                @include tablet {
+                    width: 100%;
+                    max-width: none;
+                }
+                height: fluid(50,42);
+            }
+
+            @include middle {
+                column-gap: 50px;
+            }
+
+            @include tablet {
+                flex-direction: column;
+                height: 294px;
+                row-gap: 30px;
+            }
+            @include mobile-s {
+                padding-inline: 10px;
+            }
+        }
+
+        @include tablet {
+            top: -147px;
+        }
+    }
+
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap:100px;
+        width: 100%;
+
+        &-left-side {
+            display: flex;
+            flex-direction: column;
+            row-gap: fluid(25,14);
+            
+        }
+
+        &-logo-button {
+            width: 167px;
+            height: 23px;
+        }
+
+        &-description {
+            font-size: 14px;
+            color: var(--color-black-transparent-06);
+        }
+
+        &-soc1als {
+            display: flex;
+            column-gap: 12px;
+        }
+
+        @include middle {
+            gap:50px;
+        }
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            row-gap: 24px;
+        }
+    }
+
+    &__menu {
+        display: grid;
+        grid-template-columns: repeat(var(--footerColumns), 1fr);
+        gap: 24px;
+        
+        &-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 16px;
+            font-size: fluid(16,14) ;
+        }
+        &-item {
+            color: var(--color-black-transparent-06);
+        }
+    }
+
+    &__lower {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+
+        &-label {
+            color: var(--color-black-transparent-06);
+            font-size: 14px;
+        }
+
+        &-cards-list {
+            display: inherit;
+            column-gap: fluid(12,10);
+        }
+        &-cards-item {
+            background: transparent;
+        }
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .hr {
+        width: 100%;
+        margin-top: fluid(50,40);
+        margin-bottom: fluid(25,16);
+    }
+    
+}
+a.footer__menu-item {
+  font-size: fluid(16,14)
+}
