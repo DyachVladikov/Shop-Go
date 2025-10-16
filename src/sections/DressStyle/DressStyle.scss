@@ -1,0 +1,98 @@
+.style-banner {
+    --currentUrl: "";
+
+    @include tablet {
+        padding: 50px;
+    }
+
+    @include mobile {
+        padding: 10px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: fluid(64,28);
+        background-color: var(--color-gray);
+        height: fluid(866,400);
+        padding: fluid(70,40) fluid(64,24) ;
+        border-radius: var(--border-radius-lm);
+
+        @include tablet {
+            height: 975px;
+        }
+
+        
+
+        @include mobile {
+            border-radius: var(--border-radius-m);
+        }
+        
+    }
+
+    &__title {
+        text-align: center;
+        line-height: 88.8%;
+    }
+
+    &__body {
+        width: 100%;
+        height: 100%;
+        &-list {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            gap: fluid(20,16);
+
+            grid-template-areas: 
+                "a a a b b b b b"
+                "c c c c c d d d";
+            #el1 {
+                grid-area: a;
+            }
+            #el2 {
+                grid-area: b;
+            }
+            #el3 {
+                grid-area: c;
+            }
+            #el4 {
+                grid-area: d;
+            }
+
+            @include tablet {
+                grid-template-areas: 
+                "a"
+                "b"
+                "c"
+                "d";
+            }
+
+        }
+
+        &-item {
+            display: flex;
+            background: var(--color-white);
+            border-radius: var(--border-radius-m);
+            justify-content: start;
+            padding: fluid(25,16) fluid(36,24);
+            background: var(--color-white) var(--currentUrl) no-repeat;
+            background-position: right;
+            background-size: contain;
+            
+
+            &-title {
+                font-family: "Satoshi";
+            }
+
+            @include mobile-s {
+                padding: 10px;
+                background-size: cover;
+                background-position: top left 30px;
+            }
+            
+        }
+        
+    }
+}
