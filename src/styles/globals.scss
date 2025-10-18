@@ -51,7 +51,7 @@ h3, .h3 {
     font-weight: 700;
 }
 h4, .h4 {
-    @include fluid-text(24,18);
+    @include fluid-text(36,24);
     font-weight: 600;
 }
 h5, .h5 {
@@ -89,8 +89,9 @@ a {
     height: 1px;
     background: var(--color-black-transparent);
 }
-section:not(:last-child) {
-    margin-bottom: 80px;
+section:not(:last-child)
+{
+    margin-bottom: fluid(80,50);
 }
 
 /* .header, .content > *:not(:nth-last-child(2)), .footer {

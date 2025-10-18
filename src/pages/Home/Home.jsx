@@ -1,13 +1,13 @@
 import Banner from "@/sections/Banner"
 import "./Home.scss"
-import Stuff from "@/sections/Stuff"
+import DressStyle from "@/sections/DressStyle"
 
 const Home = () => {
 
     return (
         <>
             <Banner />
-            <Stuff />
+            <DressStyle/>
         </>
     )
 }
