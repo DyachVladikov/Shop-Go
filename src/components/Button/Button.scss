@@ -13,7 +13,6 @@
     text-wrap: nowrap;
 
     &--modal {
-            /* color: var(--color-white); */
             color: red !important;
             background: var(--color-black) !important;
             width: 70px !important;
@@ -29,6 +28,11 @@
             background: var(--color-black);
             color: var(--color-white);
             padding-inline: fluid(68,48);
+
+            @include hover {
+                background: var(--color-white) !important;
+                color: var(--color-black) !important;
+            }
         }
 
     &__icon {
@@ -57,9 +61,9 @@
             width: 90%;
             height: 90%;
         }
-
-        
-
-        
+    }
+    @include hover {
+        background: var(--color-black);
+        color: var(--color-white);
     }
 }

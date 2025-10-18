@@ -1,0 +1,27 @@
+.product {
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title
+    {
+        margin-bottom: fluid(55,32);
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: fluid(20,16) fluid(36,24);
+        }
+        &-button {
+            margin-top: fluid(36,24);
+        }
+    }
+}

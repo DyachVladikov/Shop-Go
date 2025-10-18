@@ -1,0 +1,11 @@
+.stuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hr {
+    &--large-margin {
+        margin-block: fluid(64,40);
+    }
+}

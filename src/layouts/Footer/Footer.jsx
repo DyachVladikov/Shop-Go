@@ -102,7 +102,7 @@ const Footer = () => {
                     </div>
                     <nav className="footer__menu">
                         {menuItems.map(({title, items}, index) => (
-                            <ul className="footer__menu-list">
+                            <ul className="footer__menu-list" key={index}>
                                 <li className="footer__menu-title h6">{title}</li>
                                 {items.map((item, index) => (
                                     <a className="footer__menu-item" key={index}>{item}</a>
@@ -116,7 +116,7 @@ const Footer = () => {
                     <span className="footer__lower-label">Shop.co © 2000-2021, All rights reserved</span>
                     <ul className="footer__lower-cards-list">
                         {cards.map(({label, href}, index) => (
-                            <li className="footer__lower-cards-item">
+                            <li className="footer__lower-cards-item" key={index}>
                                 <img src={href} alt ={label} />
                             </li>
                         ))}

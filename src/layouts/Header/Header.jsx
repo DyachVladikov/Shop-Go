@@ -17,7 +17,7 @@ const Header = () => {
     const navigationList = [
         {
             label: "Shop",
-            href: "/"
+            href: "/",
         },
          {
             label: "On Scale",
@@ -110,8 +110,7 @@ const Header = () => {
                                 </Button>
                                 
                             </div>
-                    </div>
-                        
+                    </div>      
                         <nav className="header__navigation">
                             <ul className="header__navigation-list">
                                 {navigationList.map((navigationItem, index) => (
