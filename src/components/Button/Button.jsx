@@ -14,12 +14,12 @@ const Button = (props) => {
         type,
         onClick,
         children,
-        mode, // "small" || "modal" || "black"
+        mode, // "small" || "modal" || "black" || slider
     } = props
 
     const Component = href != undefined ? "a" : "button"
     const linkProps = Component === "a" ? {href} : [""]
-    const buttonProps = Component === "button" ? {type, onClick} : [""]
+    const buttonProps = Component === "button" ? {type, onClick, } : [""]
     const currentProps = Component === "a" ? linkProps : buttonProps
 
     const ComponentName = Component === "a" ? "button-link" : "button"

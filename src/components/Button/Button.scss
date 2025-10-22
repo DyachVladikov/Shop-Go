@@ -22,7 +22,7 @@
             border-radius: var(--border-radius-s);
 
             
-        }
+    }
     
     &--black {
             background: var(--color-black);
@@ -33,7 +33,17 @@
                 background: var(--color-white) !important;
                 color: var(--color-black) !important;
             }
+    }
+
+    &--slider {
+        background: transparent;
+        border: none;
+        color: black;
+        @include hover {
+            transform: scale(1.4);
+            background: transparent !important;
         }
+    }
 
     &__icon {
 
@@ -61,6 +71,7 @@
             width: 90%;
             height: 90%;
         }
+
     }
     @include hover {
         background: var(--color-black);

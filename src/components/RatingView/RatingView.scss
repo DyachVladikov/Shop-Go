@@ -17,10 +17,17 @@
             0 100%
             );
         }
+
+        &--comments {
+            position: absolute;
+            left: 45px;
+            transform: scale(1.4);
+        }
     }
 
     &__label {
         font-size: fluid(14,12);
         font-weight: normal;
     }
+
 }

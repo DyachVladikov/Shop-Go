@@ -80,6 +80,7 @@
             background: var(--color-white) var(--currentUrl) no-repeat;
             background-position: right;
             background-size: contain;
+            transition-duration: var(--transition-duration);
             
 
             &-title {
@@ -90,6 +91,11 @@
                 padding: 10px;
                 background-size: cover;
                 background-position: top left 30px;
+            }
+
+            @include hover {
+                transform: scale(1.1);
+                border: var(--border);
             }
             
         }

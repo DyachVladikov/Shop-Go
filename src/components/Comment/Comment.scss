@@ -1,0 +1,27 @@
+.comment {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    height: fluid(240,186);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--color-black-transparent);
+    width: fluid(400,358);
+    padding: fluid(28,24) fluid(32,24);
+
+    &__user-nick-name {
+
+        &--ordered {
+            position: relative;
+            &::after {
+                content: "";
+                width: 24px;
+                height: 24px;
+                background-image: url("/src/assets/icons/checked.png");
+                position: absolute;
+                top: 8%;
+            }
+        }
+
+    }
+}

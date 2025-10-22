@@ -45,6 +45,7 @@
             &-label {
                 color: var(--color-white);
                 line-height: 120%;
+                
             }
 
             &-actions {
@@ -61,7 +62,6 @@
                 }
                 height: fluid(50,42);
             }
-
             @include middle {
                 column-gap: 50px;
             }

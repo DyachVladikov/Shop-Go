@@ -5,6 +5,7 @@
     &__image {
         width:  fluid(295,198);
         height: fluid(298,200);
+        border-radius: var(--border-radius-m);
     }
 
     &__cost {

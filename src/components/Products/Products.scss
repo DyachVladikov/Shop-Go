@@ -9,6 +9,7 @@
     &__title
     {
         margin-bottom: fluid(55,32);
+        text-align: center;
     }
     &__body {
         display: flex;
@@ -17,8 +18,16 @@
         &-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             gap: fluid(20,16) fluid(36,24);
+
+            @include middle-above {
+                flex-wrap: nowrap;
+            }
+
+            @include mobile {
+                justify-content: center;
+            }
         }
         &-button {
             margin-top: fluid(36,24);
