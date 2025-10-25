@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     row-gap: fluid(40,24);
-
+    
     &__header {
         display: flex;
         justify-content: space-between;
@@ -13,11 +13,23 @@
         @include tablet {
             text-align: center;
         }
+
+        @include mobile {
+            text-align: start;
+        }
     }
 
     &__actions {
         display: flex;
         justify-content: end;
         align-self: end;
+    }
+
+    @include tablet {
+        padding-inline: 50px;
+    }
+
+    @include mobile {
+        padding-inline: 16px;
     }
 }

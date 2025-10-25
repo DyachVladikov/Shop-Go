@@ -1,7 +1,10 @@
+import classNames from "classnames";
 import Button from "../Button"
 import ProductCard from "../ProductCard";
 import "./Products.scss"
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Slider from "../Slider";
+import { createSwiperConfig } from "@/modules/SwiperConfig";
 
 const Products = (props) => {
 
@@ -11,34 +14,87 @@ const Products = (props) => {
         hasButton = true,
     } = props
 
+     const swiperConfig = createSwiperConfig({
+            options: {
+            slidesPerView: 1.7,
+            slidesPerGroup: 1,
+            centeredSlides: false,
+            spaceBetween: 16,
+            observer: true,
+            observeParents: true,
+            
+            },
+        });
+
+
     const [showAll, setShowAll] = useState(false);
-    const initialVisible = 4;
+    const [width, setWidth] = useState(1440);
+    const [initialVisible, setinitialVisible] = useState(4);
+    
+
+    useEffect(() => {
+        window.addEventListener("resize", checkWidth)
+
+        checkWidth();
+
+        return () => window.removeEventListener("resize", checkWidth);
+    })
+
+    useEffect(() => {
+        if(width < 767)
+        {
+            setinitialVisible(3)
+        }
+        if(width < 1040 && width >= 767)
+            setinitialVisible(2)
+        if(width < 1380 && width >= 1040)
+            setinitialVisible(3)
+        if(width >= 1380)
+            setinitialVisible(4)
+    }, [width])
+
+
+    const checkWidth = () => {
+        setWidth(window.innerWidth) 
+    }
 
     const handleToggle = () => {
         setShowAll((prev) => !prev);
     };
 
-    const visibleProducts = showAll ? products : products.slice(0, initialVisible);
+    
+
+    const visibleProducts = showAll ? products : products.slice(0, initialVisible);    
 
     return (
-        <div className="product__inner container">
-            <h2 className="product__title">{title}</h2>
-            <div className="product__body">
-                <div className="product__body-list">
-                    {visibleProducts.map((product, index) => (
-                        <ProductCard 
-                        {...product}
-                        key={index}/>
-                    ))}
+        <div className="product">
+            <div className="product__inner container">
+                <h2 className="product__title">{title}</h2>
+                <div className="product__body">
+                    {width < 767 &&
+                    (
+                        <Slider className="products__slider"
+                        type = "products" config = {swiperConfig} 
+                        >
+                            {visibleProducts}
+                        </Slider>
+                    )}
+                    <div className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")}>
+                        {visibleProducts.map((product, index) => (
+                            <ProductCard 
+                            {...product}
+                            key={index}/>
+                        ))}
+                    </div>
+                    {products.length > initialVisible  && hasButton && (
+                        <Button className="product__body-button" type = "button" onClick={handleToggle}>
+                        {showAll ? "Hide" : "View All"}
+                        </Button>
+                    )}
                 </div>
-                {products.length > initialVisible  && hasButton && (
-                    <Button className="product__body-button" type = "button" onClick={handleToggle}>
-                    {showAll ? "Hide" : "View All"}
-                    </Button>
-                )}
             </div>
-                
         </div>
+        
     )
 }
 

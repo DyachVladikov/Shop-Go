@@ -1,8 +1,19 @@
 .swiper {
-    max-width: 1240px;
 
     &-button-disabled {
         opacity: 0.5;
         pointer-events: none;
+    }
+
+    &-customers__slider {
+        max-width: 1240px;
+    }
+
+    &-products__slider {
+
+        @include mobile {
+            max-width: fluid(1440,350);
+        }
+        // max-width: 400px;
     }
 }

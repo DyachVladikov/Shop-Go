@@ -14,10 +14,13 @@ const Comment = (props) => {
     return (
         <div className="comment">
             <RatingView className="comments" value = {review} hasLabel ={false}/>
-            <h5 className={classNames({"comment__user-nick-name" : !hasOrdered}, {"comment__user-nick-name--ordered" : hasOrdered})}>{`${nickName}.`}</h5>
-            <p className="comment__user-text">
-                {description}
-            </p>
+            <div className="comment__body">
+                <h5 className={classNames({"comment__user-nick-name" : !hasOrdered}, {"comment__user-nick-name--ordered" : hasOrdered})}>{`${nickName}.`}</h5>
+                <p className="comment__user-text">
+                    {description}
+                </p>
+            </div>
+            
         </div>
     )
 }

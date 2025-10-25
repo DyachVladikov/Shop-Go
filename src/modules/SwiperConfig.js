@@ -1,4 +1,4 @@
-// swiperConfig.js
+
 
 export function createSwiperConfig({
   nextSelector,
@@ -9,17 +9,22 @@ export function createSwiperConfig({
     modules: options.modules || [],
     spaceBetween: options.spaceBetween || 20,
     slidesPerView: options.slidesPerView || 3,
+    loop: options.loop || false,
+    centeredSlides: options.centeredSlides ?? false,
+    initialSlide: options.initialSlide || 0,
+    observer: options.observer ?? true,
+    observeParents: options.observeParents ?? true,
+
     breakpoints:
-      options.breakpoints || {
-        320: { slidesPerView: 1, spaceBetween: 10 },
-        768: { slidesPerView: 2, spaceBetween: 15 },
-        1024: { slidesPerView: 3, spaceBetween: 20 },
-      },
+      options.breakpoints ?? [],
+    effect: options.effect,
+
+    
 
     onInit: (swiper) => {
       const prevEl = document.querySelector(prevSelector);
       const nextEl = document.querySelector(nextSelector);
-
+  
       if (!prevEl || !nextEl) {
         console.warn("❗ Swiper: не найдены элементы навигации", {
           prevSelector,
@@ -36,16 +41,23 @@ export function createSwiperConfig({
 
       // ✅ Добавляем обработчики для состояния кнопок
       const updateNavState = () => {
-        if (swiper.isBeginning) {
-          prevEl.classList.add("swiper-button-disabled");
-        } else {
-          prevEl.classList.remove("swiper-button-disabled");
-        }
+        if(options.loop != true)
+        {
+          if (swiper.isBeginning) {
+            prevEl.classList.add("swiper-button-disabled");
+          } else {
+            prevEl.classList.remove("swiper-button-disabled");
+          }
 
-        if (swiper.isEnd) {
-          nextEl.classList.add("swiper-button-disabled");
-        } else {
-          nextEl.classList.remove("swiper-button-disabled");
+          if (swiper.isEnd) {
+            nextEl.classList.add("swiper-button-disabled");
+          } else {
+            nextEl.classList.remove("swiper-button-disabled");
+          }
+        }
+        else
+        {
+          return;
         }
       };
 

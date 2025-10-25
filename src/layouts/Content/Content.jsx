@@ -1,3 +1,6 @@
+import classNames from "classnames"
+import "./Content.scss"
+
 const Content = (props) => {
     
     const {
@@ -6,7 +9,7 @@ const Content = (props) => {
     } = props
 
     return (
-        <main className={className}>
+        <main className={classNames("main", className)}>
             {children}
         </main>
     )

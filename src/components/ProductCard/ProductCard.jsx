@@ -1,4 +1,5 @@
 
+import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./ProductCard.scss"
 
@@ -10,12 +11,13 @@ const ProductCard = (props) => {
         cost, 
         imgSrc,
         discount,
+        className = "",
     } = props
 
     const costWithDiscount = cost + (cost * discount / 100)
 
     return (
-        <div className="product-card">
+        <div className={classNames("product-card", `product-card-${className}`)}>
             <img className="product-card__image" src={imgSrc} />
             <h5 className="product-card__label">{name}</h5>
             <RatingView value = {rating}/>
