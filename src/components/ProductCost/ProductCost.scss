@@ -1,0 +1,62 @@
+.product-card {
+    &__cost {
+        display: flex;
+        column-gap: fluid(10,5);
+        font-size: fluid(24,20);
+        font-family: "SatoshiB";
+        font-weight: 1000;
+        column-gap: fkuid(10,5);
+
+        &__main {
+            display: inherit;
+            column-gap: inherit;
+            font-size: inherit;
+        }
+
+        &-discount{
+
+            &-value {
+                position: relative;
+                color: var(--color-black-transparent-04);
+                height: 100%;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 55%;
+                    width: 100%;
+                    height: 1px;
+                    background-color: currentColor;
+                }
+            }
+
+            &-procent {
+                display: inline-flex;
+                background-color: var(--color-red-01);
+                color: var(--color-red);
+                width: fluid(58,42);
+                height: fluid(28,20); 
+                border-radius: var(--border-radius-l);
+                border: none;
+                font-size: fluid(12,10);
+                padding: fluid(14,6) fluid(8,3);
+                text-align: center;
+                font-family: "SatoshiR";
+                align-items: center;        
+                align-self: center;
+                justify-content: center;
+
+                &--large {
+                    width: fluid(72,62);
+                    height: fluid(34,31);
+                    padding: fluid(14,6); 
+                    font-size: fluid(16,14);
+                }
+            }
+            
+        }
+        &--large {
+            font-size: fluid(32,24);
+        }
+    }
+}

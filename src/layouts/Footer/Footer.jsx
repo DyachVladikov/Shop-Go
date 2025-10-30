@@ -64,6 +64,28 @@ const Footer = () => {
             href: "/src/assets/images/Footer/cards/5.png",
         },
     ]
+    const socials = [
+        {
+            src: "/src/assets/icons/twitter.svg",
+            alt: "twitter",
+            href: "/",
+        },
+        {
+            src: "/src/assets/icons/facebook.svg",
+            alt: "twitter",
+            href: "/",
+        },
+        {
+            src: "/src/assets/icons/instagram.svg",
+            alt: "twitter",
+            href: "/",
+        },
+        {
+            src: "/src/assets/icons/cat.svg",
+            alt: "twitter",
+            href: "/",
+        },
+    ]
     return (
         <footer className="footer">
             <div className="footer__inner container">
@@ -94,10 +116,11 @@ const Footer = () => {
                         </Button>
                         <p className="footer__body-description">We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
                         <div className="footer__body-soc1als">
-                            <img className="footer__body-soc1als-item" src="/src/assets/icons/twitter.svg" alt="twitter"/>
-                            <img className="footer__body-soc1als-item" src="/src/assets/icons/facebook.svg" alt="facebook"/>
-                            <img className="footer__body-soc1als-item" src="/src/assets/icons/instagram.svg"alt="instagram" />
-                            <img className="footer__body-soc1als-item" src="/src/assets/icons/cat.svg" alt="cat"/>
+                            {socials.map(({href,src,alt}, index) => (
+                                <a href={href} key={index}>
+                                    <img src={src} alt={alt} />
+                                </a>
+                            ))}
                         </div>
                     </div>
                     <nav className="footer__menu">

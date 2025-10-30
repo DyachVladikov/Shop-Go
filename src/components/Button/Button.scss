@@ -11,6 +11,7 @@
     position: relative;
     align-items: center;
     text-wrap: nowrap;
+    font-size: fluid(16,14);
 
     &--modal {
             color: red !important;
@@ -28,6 +29,7 @@
             background: var(--color-black);
             color: var(--color-white);
             padding-inline: fluid(68,48);
+            font-size: 16px;
 
             @include hover {
                 background: var(--color-white) !important;
@@ -45,6 +47,16 @@
         }
     }
 
+    &--sizes {
+        color: var(--color-black-transparent-06);
+        background-color: var(--color-gray);
+        height: fluid(46,39);
+        padding: fluid(12,10) fluid(24,20);
+        font-family: "SatoshiR";
+        font-size: fluid(16,14);
+        width: auto;
+    }
+
     &__icon {
 
         width: 44px;
@@ -52,6 +64,10 @@
         object-fit: contain;
         background: transparent;
         border: none;
+
+        @include hover {
+            background: transparent !important;
+        }
 
         &-item {
             width: 24px;

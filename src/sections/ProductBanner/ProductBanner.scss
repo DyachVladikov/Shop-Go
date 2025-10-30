@@ -1,0 +1,210 @@
+.product-banner {
+    /* max-height: 530px; */
+    &__header {
+        display: flex;
+        column-gap: fluid(32,18);
+        justify-content: start;
+        margin-top: 24px;
+        margin-bottom: fluid(36,20);
+        &-path {
+            font-size: fluid(16,14);
+            position: relative;
+            font-family: 'SATOSHIR';
+
+            &:not(:last-child) {
+                color: var(--color-black-transparent-06);
+                &::after {
+                    content: "";
+                    position: absolute;
+                    object-fit: cover;
+                    background-repeat: no-repeat;
+                    background-image: url("/src/assets/icons/arrow-right.svg");
+                    width: 16px;
+                    height: 16px;
+                    right: -20px;
+                    top: 15%
+                }
+            }
+        }
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-height: 530px;
+
+        @include desktop-s-above {
+            grid-template-columns: 1fr 1.5fr;
+        }
+    }
+    &__card {
+        display: flex;
+        column-gap: 14px;
+        &-aside {          
+            &-list {
+                display: flex;
+                flex-direction: column;
+                row-gap: 14px;
+                height: 100%;
+            }
+
+            &-item {
+                width: 152px;
+                height: 167px;
+            }
+            &-button {
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: var(--border-radius-m);
+
+                @include hover {
+                    
+                    transform: scale(1.1);
+                }
+
+                &:focus {
+                    @include focus-visible;
+                }
+            }
+
+        }
+        &-image {
+            width: 444px;
+            height: 530px;
+            object-fit: cover;
+            border-radius: var(--border-radius-m);
+        }
+    }
+    &__description {
+        padding-left: 40px;
+        &-title {
+            display: flex;
+            flex-direction: column;
+            row-gap: 14px;
+        }
+        &-text {
+            font-size: fluid(16,14);
+            color: var(--color-black-transparent-06);
+            margin-bottom: 24px;
+        }
+    }
+    &__colors {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+
+        padding-block: 14px;
+        &-label {
+            font-size: fluid(16,14);
+            color: var(--color-black-transparent-06);
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: row;
+            column-gap: fluid(16,12);
+        }
+
+        &-item {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            &.is-active {
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background-image: url("/src/assets/icons/checkMark.svg");
+                    width: 16px;
+                    height: 16px;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                }
+            }
+
+            
+        }
+        &-button {
+                border: none;
+                width: 44px;
+                height: 44px;
+                background-color: transparent;
+        }
+    }
+
+    &__sizes {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        &-label {
+            font-size: fluid(16,14);
+            color: var(--color-black-transparent-06);
+        }
+
+        &-list {
+            display: flex;
+            column-gap: fluid(12,8);
+            margin-bottom: 24px;
+        }
+
+        &-button {
+            &.is-active {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+        }
+        
+    }
+    &__actions {
+        margin-top: 24px;
+        display: flex;
+        column-gap: fluid(20,12);
+
+        &-count {
+            width: fluid(170,110);
+            height: 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--color-gray);
+            border-radius: var(--border-radius-l);
+            font-size: fluid(16,14);
+            padding: fluid(14,12) fluid(20,16);
+        }
+
+        &-button {
+
+            &--count {
+
+                &-m {
+                    translate: -35% 0;
+                }
+                &-p {
+                    translate: 35% 0;
+                }
+                
+            }
+            &--add {
+                width: fluid(400,236);
+            }
+
+        }
+    }
+
+    //полосы
+    &__description-title, &__colors, &__sizes {
+        position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background-color: var(--color-black-transparent);
+                bottom: 0px;
+                left: 0px;
+            }
+    }
+}

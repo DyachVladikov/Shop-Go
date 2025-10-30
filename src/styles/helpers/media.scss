@@ -1,8 +1,21 @@
+$desktop-s: 1680px;
 $laptop:   1440px;
 $middle:   1240px;
 $tablet:   1023px;
 $mobile:   767px;
 $mobile-s: 480px;
+
+@mixin desktop-s-above {
+  @media (width > $desktop-s) {
+    @content;
+  }
+}
+
+@mixin desktop-s {
+  @media (width <= $desktop-s) {
+    @content;
+  }
+}
 
 @mixin laptop-above {
   @media (width > $laptop) {

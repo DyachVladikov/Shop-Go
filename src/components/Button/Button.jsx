@@ -14,7 +14,7 @@ const Button = (props) => {
         type,
         onClick,
         children,
-        mode, // "small" || "modal" || "black" || slider
+        mode, // "small" || "modal" || "black" || slider || sizes
     } = props
 
     const Component = href != undefined ? "a" : "button"

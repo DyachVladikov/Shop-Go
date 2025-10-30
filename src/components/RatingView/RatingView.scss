@@ -23,11 +23,21 @@
             left: 45px;
             transform: scale(1.4);
         }
+        &--banner {
+            transform: scale(1.5);
+            left: 20px;
+            margin-right: 40px;
+        }
     }
 
     &__label {
         font-size: fluid(14,12);
         font-weight: normal;
+        font-family: "SatoshiR";
+
+        &--banner {
+            font-size: fluid(16,14);
+        }
     }
 
 }

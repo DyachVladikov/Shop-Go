@@ -1,8 +1,10 @@
+import ProductBanner from "@/sections/ProductBanner"
+
 const ProductDetails = () => {
     return (
-        <div>
-            2323
-        </div>
+        <>
+            <ProductBanner />
+        </>
     )
 }
 

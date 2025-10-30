@@ -67,8 +67,8 @@
 }
 
 @mixin focus-visible {
-  outline: 2px solid var(--color-black);
-  outline-offset: 4px;
+  outline: 1px solid var(--color-black);
+  outline-offset: 0px;
   transition-duration: 0s !important;
 }
 

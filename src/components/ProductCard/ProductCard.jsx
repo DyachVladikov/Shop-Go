@@ -2,6 +2,8 @@
 import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./ProductCard.scss"
+import ProductCost from "../ProductCost"
+import { Scripts } from "react-router-dom"
 
 const ProductCard = (props) => {
 
@@ -14,22 +16,14 @@ const ProductCard = (props) => {
         className = "",
     } = props
 
-    const costWithDiscount = cost + (cost * discount / 100)
+    
 
     return (
         <div className={classNames("product-card", `product-card-${className}`)}>
             <img className="product-card__image" src={imgSrc} />
             <h5 className="product-card__label">{name}</h5>
             <RatingView value = {rating}/>
-            <div className="product-card__cost">
-                <span className="product-card__cost-main">{`$${cost}`}</span>
-                {discount !== 0 && (
-                    <>
-                        <span className="product-card__cost-discount-value">{`$${costWithDiscount}`}</span>
-                        <span className="product-card__cost-discount-procent">{`-${discount}%`}</span>
-                    </>
-                )}
-            </div>
+            <ProductCost cost={cost} discount={discount} />
             
         </div>
     )
