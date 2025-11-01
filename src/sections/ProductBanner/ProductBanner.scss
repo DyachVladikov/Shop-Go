@@ -1,5 +1,12 @@
 .product-banner {
-    /* max-height: 530px; */
+
+    @include tablet {
+        padding-inline: 50px;
+    }
+
+    @include mobile {
+        padding-inline: 16px;
+    }
     &__header {
         display: flex;
         column-gap: fluid(32,18);
@@ -31,32 +38,49 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-height: 530px;
-
         @include desktop-s-above {
             grid-template-columns: 1fr 1.5fr;
+        }   
+
+        @include tablet-l {
+            display: flex;
+            flex-direction: column;
+            max-height: none;
+            row-gap: 20px;
         }
     }
     &__card {
         display: flex;
-        column-gap: 14px;
+        gap: 14px 12px;
         &-aside {          
             &-list {
                 display: flex;
                 flex-direction: column;
                 row-gap: 14px;
                 height: 100%;
+
+                @include mobile {
+                    flex-direction: row;
+                    column-gap: 12px;
+                }
             }
 
             &-item {
                 width: 152px;
-                height: 167px;
+                height: 167px; 
+
+                @include mobile {
+                    width: 111px;
+                    height: 106px;
+                    
+                }
             }
             &-button {
                 width: 100%;
                 height: 100%;
                 border: none;
                 border-radius: var(--border-radius-m);
-
+                background-size: cover;
                 @include hover {
                     
                     transform: scale(1.1);
@@ -69,23 +93,40 @@
 
         }
         &-image {
-            width: 444px;
-            height: 530px;
+            height: 100%;
             object-fit: cover;
             border-radius: var(--border-radius-m);
+            min-width: 400px;
+            @include mobile {
+                min-width: 358px;
+                width: 358px;
+                height: 290px;
+            }
+        }
+
+        @include mobile {
+            flex-direction: column-reverse;
         }
     }
     &__description {
         padding-left: 40px;
+        max-height: 530px;
+        &-name {
+            font-size: fluid(40,24);
+        }
         &-title {
             display: flex;
             flex-direction: column;
-            row-gap: 14px;
+            row-gap: fluid(14,12);
         }
         &-text {
             font-size: fluid(16,14);
             color: var(--color-black-transparent-06);
             margin-bottom: 24px;
+        }
+
+        @include tablet-l {
+            padding: 0;
         }
     }
     &__colors {
@@ -160,7 +201,8 @@
     }
     &__actions {
         margin-top: 24px;
-        display: flex;
+        display: grid;
+        grid-template-columns: fluid(170,111) 1fr;
         column-gap: fluid(20,12);
 
         &-count {
@@ -178,6 +220,7 @@
         &-button {
 
             &--count {
+                
 
                 &-m {
                     translate: -35% 0;
@@ -188,7 +231,8 @@
                 
             }
             &--add {
-                width: fluid(400,236);
+                min-width: 236px;
+                width: 100%;
             }
 
         }

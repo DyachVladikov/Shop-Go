@@ -49,7 +49,7 @@ const ProductBanner = () => {
                 </div>
                 <div className="product-banner__description">
                     <div className="product-banner__description-title">
-                        <h1 className="h3">{product.title}</h1>
+                        <h1 className="product-banner__description-name">{product.title}</h1>
                         <RatingView className="banner" value={product.rating}/>
                         <ProductCost className="banner" cost={product.cost} discount={product.discount} />
                         <p className="product-banner__description-text">
