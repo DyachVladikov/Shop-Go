@@ -1,0 +1,66 @@
+.rating-reviews {
+
+    --countComments: "0";
+    --offsetComment: -30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-title {
+            &,
+            &h2,
+            .rating-reviews & {
+                font-size: fluid(24,20);
+                font-family: "Satoshi";
+            }
+            position: relative;
+            &::after {
+                position: absolute;
+                content: " (" var(--countComments) ")";
+                color: var(--color-black-transparent-06);
+                right: calc(var(--offsetComment) * 1px);
+                font-size: fluid(16,14);
+                top:25%;
+            }
+        }
+
+        &-actions {
+            display: flex;
+            column-gap: fluid(10,8);
+            align-items: center;
+
+            &--options {
+                border-radius: 50%;
+                width: fluid(48,40);
+                height: fluid(48,40);
+            }
+
+            &--latest {
+                width: 120px;
+            }
+        }
+    }
+
+    &__body {
+        &-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            @include tablet {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+    }
+
+    &__footer {
+        align-self: center;
+    }
+}
