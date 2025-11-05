@@ -25,7 +25,7 @@
                 color: var(--color-black-transparent-06);
                 right: calc(var(--offsetComment) * 1px);
                 font-size: fluid(16,14);
-                top:25%;
+                top:15%;
             }
         }
 
@@ -33,7 +33,7 @@
             display: flex;
             column-gap: fluid(10,8);
             align-items: center;
-
+            font-size: fluid(16,12);
             &--options {
                 border-radius: 50%;
                 width: fluid(48,40);
@@ -42,6 +42,32 @@
 
             &--latest {
                 width: 120px;
+                position: relative;
+                padding-block: 13px;
+                padding-left: 20px;
+                justify-content: start;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background-image: url("/src/assets/icons/arrow-down.svg");
+                    width: 24px;
+                    height: 24px;
+                    top: 45%;
+                    right: 5%;
+                    object-fit: cover;
+                    background-repeat: no-repeat;
+                }
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            &--review {
+                width: fluid(166,113);
+                height: fluid(48,40);
+                padding: 12px fluid(30,16);
+                font-size: inherit;
             }
         }
     }
@@ -58,6 +84,15 @@
             }
         }
 
+    }
+    &__comment {
+        width: auto;
+        @include mobile-above {
+            max-height: 244px;
+        }
+        @include mobile {
+            height: auto;
+        }
     }
 
     &__footer {

@@ -8,7 +8,7 @@ function App() {
 
   const location = useLocation();
 
-  const path = location.pathname === "/" ? "home" : location.pathname.slice(1);
+  const path = location.pathname === "/" ? "home" : location.pathname.slice(1).replaceAll("/", "-");
 
   return (
     <>

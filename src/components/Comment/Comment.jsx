@@ -12,10 +12,11 @@ const Comment = (props) => {
         hasOrdered,
         hasPoints,
         Posted,
+        className,
     } = props
 
     return (
-        <div className="comment">
+        <div className={classNames("comment", className)}>
             <div className="comment__rating-view-and-points">
                 <RatingView className="comments" value = {review} hasLabel ={false}/>
                 {hasPoints && (

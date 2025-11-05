@@ -25,11 +25,22 @@
         position: absolute;
         right: 18px;
         top: 5px;
+        @include mobile {
+            @include hide;
+        }
     }
     &__body {
-        display: inherit;
+        display: inherit; 
         flex-direction: inherit;
         row-gap: 12px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include mobile {
+            overflow-y: hidden;
+        }
     }
 
     &__user-text, &__posted  {
@@ -45,7 +56,7 @@
                 height: 24px;
                 background-image: url("/src/assets/icons/checked.png");
                 position: absolute;
-                top: 8%;
+                top: 5%;
             }
         }
 

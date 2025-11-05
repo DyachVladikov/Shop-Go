@@ -95,6 +95,6 @@ section:not(:last-child)
     margin-bottom: fluid(80,50);
 }
 
-.header, .main > *:not(:nth-last-child(1)), .footer {
+/* .header, .main > *:not(:nth-last-child(1)), .footer {
     display: none !important;
-}
+} */

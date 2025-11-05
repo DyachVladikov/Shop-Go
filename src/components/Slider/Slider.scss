@@ -8,6 +8,10 @@
     &-customers__slider {
         max-width: 1240px;
         align-self: center;
+        &.container {
+            padding: 0;
+        }
+
     }
 
     &-products__slider {

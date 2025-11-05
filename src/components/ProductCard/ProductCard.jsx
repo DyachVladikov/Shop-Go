@@ -1,31 +1,32 @@
-
+import { Link} from "react-router-dom";
 import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./ProductCard.scss"
 import ProductCost from "../ProductCost"
-import { Scripts } from "react-router-dom"
 
 const ProductCard = (props) => {
 
     const {
-        name, 
+        title, 
         rating, 
         cost, 
-        imgSrc,
+        src = [],
         discount,
+        id,
         className = "",
     } = props
 
     
 
     return (
-        <div className={classNames("product-card", `product-card-${className}`)}>
-            <img className="product-card__image" src={imgSrc} />
-            <h5 className="product-card__label">{name}</h5>
+        <Link className={classNames("product-card", `product-card-${className}`)}
+            to={`/productdetails/${id}`}
+        >
+            <img className="product-card__image" src={src[0]} />
+            <h5 className="product-card__label">{title}</h5>
             <RatingView value = {rating}/>
             <ProductCost cost={cost} discount={discount} />
-            
-        </div>
+        </Link>
     )
 }
 

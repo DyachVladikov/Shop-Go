@@ -2,6 +2,7 @@ import "./Reviews.scss"
 import { useState } from "react"
 import RatingReviews from "@/components/RatingReviews"
 import data from "./data.json"
+import classNames from "classnames"
 
 const Reviews = () => {
 
@@ -12,13 +13,13 @@ const Reviews = () => {
         <section className="reviews container">
             <h2 className="visually-hidden">Reviews</h2>
             <div className="reviews__actions">
-                <button
+                <button className={classNames("reviews__actions-product-details", {"is-active": indexActiveSection === 0})}
                 onClick={() => setIndexActiveSection(0)}
                 >Product Details</button>
-                <button
+                <button className={classNames("reviews__actions-rating-reviews", {"is-active": indexActiveSection === 1})}
                 onClick={() => setIndexActiveSection(1)}
                 >Rating & Reviews</button>
-                <button
+                <button className={classNames("reviews__actions-FAQs", {"is-active": indexActiveSection === 2})}
                 onClick={() => setIndexActiveSection(2)}
                 >FAQs</button>
             </div>

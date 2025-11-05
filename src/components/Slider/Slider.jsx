@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Comment from "../Comment";
 import ProductCard from "../ProductCard";
+import classNames from "classnames";
 
 const Slider = (props) => {
 
@@ -16,7 +17,7 @@ const Slider = (props) => {
     } = props
 
     return(
-        <div className = {`swiper-${className}`}>
+        <div className = {classNames(`swiper-${className}`, { "container": type === "customers" })}>
             <Swiper 
                 {...config}            
             >

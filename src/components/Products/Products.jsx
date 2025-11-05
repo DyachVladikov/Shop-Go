@@ -3,6 +3,7 @@ import Button from "../Button"
 import ProductCard from "../ProductCard";
 import "./Products.scss"
 import { useState, useEffect, useRef } from "react";
+import { Link, useParams} from "react-router-dom";
 import Slider from "../Slider";
 import { createSwiperConfig } from "@/modules/SwiperConfig";
 
@@ -26,12 +27,11 @@ const Products = (props) => {
             },
         });
 
-
+    
     const [showAll, setShowAll] = useState(false);
     const [width, setWidth] = useState(1440);
     const [initialVisible, setinitialVisible] = useState(4);
     
-
     useEffect(() => {
         window.addEventListener("resize", checkWidth)
 
@@ -41,9 +41,12 @@ const Products = (props) => {
     })
 
     useEffect(() => {
-        if(width < 767)
+        if(width < 767 && hasButton)
         {
             setinitialVisible(3)
+        }
+        else if(width < 767 && !hasButton) {
+            setinitialVisible(4)
         }
         if(width < 1040 && width >= 767)
             setinitialVisible(2)
@@ -56,6 +59,7 @@ const Products = (props) => {
 
     const checkWidth = () => {
         setWidth(window.innerWidth) 
+        
     }
 
     const handleToggle = () => {
@@ -79,14 +83,18 @@ const Products = (props) => {
                             {visibleProducts}
                         </Slider>
                     )}
-                    <div className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")}>
+                    <ul className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")}>
                         {visibleProducts.map((product, index) => (
-                            <ProductCard 
-                            {...product}
-                            key={index}/>
+                            <>
+                                <Link to={`/productdetails/${product.id}`} key={index}></Link>
+                                <ProductCard 
+                                {...product}
+                                />
+                            </>
+                            
                         ))}
-                    </div>
-                    {products.length > initialVisible  && hasButton && (
+                    </ul>
+                    {products.length > initialVisible && hasButton && (
                         <Button className="product__body-button" type = "button" onClick={handleToggle}>
                         {showAll ? "Hide" : "View All"}
                         </Button>

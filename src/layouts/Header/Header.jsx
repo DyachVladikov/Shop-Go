@@ -4,6 +4,7 @@ import closeButton from "@/assets/icons/closeButton.svg"
 import { useState, useEffect} from "react"
 import InputForm from "@/components/InputForm"
 import stickyEffect from "@/modules/strickyEffect"
+import LockPage from "@/modules/LockPage"
 
 const Header = () => {
 
@@ -13,6 +14,9 @@ const Header = () => {
     useEffect(() => {
         stickyEffect(); 
     }, []);
+    useEffect(() => {
+        new LockPage(isModalOpen)
+    }, [isModalOpen])
 
     const navigationList = [
         {
