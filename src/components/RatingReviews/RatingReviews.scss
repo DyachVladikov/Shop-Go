@@ -38,6 +38,11 @@
                 border-radius: 50%;
                 width: fluid(48,40);
                 height: fluid(48,40);
+
+                @include hover {
+                    background-color: var(--color-gray) !important;
+                    transform: scale(1.1);
+                }
             }
 
             &--latest {

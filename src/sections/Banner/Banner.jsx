@@ -39,6 +39,7 @@ const Banner = () => {
                 label = "Shop Now"
                 type = "link"
                 mode = "black"
+                href = "/shop"
                 />
                 <div className="banner__body-tags">
                     {Tags.map((tag, index) => (

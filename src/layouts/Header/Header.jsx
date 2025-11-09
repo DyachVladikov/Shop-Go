@@ -5,6 +5,7 @@ import { useState, useEffect} from "react"
 import InputForm from "@/components/InputForm"
 import stickyEffect from "@/modules/strickyEffect"
 import LockPage from "@/modules/LockPage"
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
 
@@ -18,10 +19,14 @@ const Header = () => {
         new LockPage(isModalOpen)
     }, [isModalOpen])
 
+    const location = useLocation();
+
+    const path = location.pathname
+
     const navigationList = [
         {
             label: "Shop",
-            href: "/",
+            href: "/shop",
         },
          {
             label: "On Scale",
@@ -150,6 +155,9 @@ const Header = () => {
                         </div> 
                     </div>
                 </div>
+                {path != "/" && (
+                    <div className="hr"/>
+                )}
             </header>
         </>
     )

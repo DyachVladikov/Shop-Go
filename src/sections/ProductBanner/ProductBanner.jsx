@@ -11,6 +11,7 @@ const ProductBanner = () => {
    
     const products = productsItems
     const { id } = useParams();
+    const text = useParams();
 
     const [product, setProduct] = useState(null)
         useEffect(() => {
@@ -24,6 +25,7 @@ const ProductBanner = () => {
     const [isActiveColor, setIsActiveColor] = useState(null)
     const [isActiveSize, setIsActiveSize] = useState(null)
     const [countProducts, setCountProducts] = useState(0)
+    const [indexMainSrc, setIndexMainSrc] = useState(0)
 
     const scrollRef = useRef(null)
 
@@ -40,7 +42,7 @@ const ProductBanner = () => {
 
     const ScrollUp = () => {
         const elementTop = scrollRef.current.getBoundingClientRect().top;
-        const offset = 120; // смещение сверху, в пикселях
+        const offset = 120; 
 
         window.scrollBy({
         top: elementTop - offset,
@@ -69,7 +71,7 @@ const ProductBanner = () => {
                                         className = "product-banner__card-aside-button" 
                                         style={{backgroundImage: `url(${currentSrc})`}} 
                                         onClick={() => {
-                                            setIndexMainSrc(index + 1)
+                                            setIndexMainSrc(index)
                                         }}
                                         />
                                     </li>
@@ -79,7 +81,7 @@ const ProductBanner = () => {
                     </div>
                     <div className="product-banner__card-main">
                         <img className="product-banner__card-image" 
-                        src={product.mainSrc} />
+                        src={product.src[indexMainSrc]} />
                     </div>
                 </div>
                 <div className="product-banner__description">
@@ -108,7 +110,6 @@ const ProductBanner = () => {
                                         />
                                     </li>
                                 )
-                                
                             })}
                         </ul>
                     </div>

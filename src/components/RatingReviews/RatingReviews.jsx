@@ -54,7 +54,7 @@ const RatingReviews = (props) => {
                     isLabelHidden
                     className = "rating-reviews__header-actions--options"
                     onlyIcon
-                    iconLink = "src/assets/icons/options.svg"
+                    iconLink = "/src/assets/icons/options.svg"
                     type = "button"
                     onClick = {() => {}}
                     mode = "gray"

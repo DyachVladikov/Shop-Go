@@ -1,0 +1,39 @@
+.accordion {
+    height: 100%;
+    border: var(--border);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 20px 24px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        &-title {
+            font-size: 20px;
+            font-family: "Satoshi";
+            &-button {
+                img {
+                    transition: rotate var(--transition-duration) ease;
+                }
+                
+                &.is-active {        
+                    img {
+                        transition-duration: var(--transition-duration);
+                        rotate: 180deg;
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        transition-duration: var(--transition-duration);
+    }
+}

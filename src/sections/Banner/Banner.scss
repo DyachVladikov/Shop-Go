@@ -45,6 +45,16 @@
             @include mobile {
                 width: 100%;
             }
+            width: 210px;
+            height: 52px;
+            border-radius: var(--border-radius-l);
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                align-self: center;
+            }
         }
         &-tags {
             display: flex;
