@@ -1,23 +1,33 @@
 .accordion {
-    height: 100%;
-    border: var(--border);
-    border-radius: var(--border-radius-m);
+    max-height: 90px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
-    padding: 20px 24px;
+    row-gap: 6px;
+    padding: 20px 20px 20px 24px;
+    transition: max-height var(--transition-duration-longer) ease;
+    overflow: hidden;
+
+    &.is-active-height {
+        max-height: 10000px;
+    }
 
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
+        // margin-bottom: 24px;
         &-title {
             font-size: 20px;
             font-family: "Satoshi";
+            font-weight: 500;
             &-button {
+                
                 img {
                     transition: rotate var(--transition-duration) ease;
+                    width: 16px;
+                    height: 16px;
+                    justify-self: end;
                 }
                 
                 &.is-active {        
@@ -26,6 +36,15 @@
                         rotate: 180deg;
                     }
                 }
+
+                &.is-not-user-active
+                {
+                    pointer-events: none;
+                    img {
+                    width: 24px;
+                    height: 24px;
+                }
+                }
             }
         }
     }
@@ -33,7 +52,15 @@
     &__body {
         display: flex;
         flex-direction: column;
-        row-gap: 16px;
-        transition-duration: var(--transition-duration);
+        opacity: 0;
+        
+        transition-duration: var(--transition-duration-longer);
+        &.is-active {
+            opacity: 100%; 
+        }
+
+        @include mobile {
+            row-gap: 16px;
+        }
     }
 }

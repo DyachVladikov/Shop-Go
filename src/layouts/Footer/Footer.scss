@@ -61,11 +61,17 @@
             }
             &-input, &-subscribe-button {
                 width: fluid(350,310);
+                transition-duration: var(--transition-duration);
                 @include tablet {
                     width: 100%;
                     max-width: none;
                 }
                 height: fluid(50,42);
+                @include hover {
+                    background-color: var(--color-white);
+                    color: var(--color-black);
+                    transform: scale(1.1);
+                }
             }
             @include middle {
                 column-gap: 50px;

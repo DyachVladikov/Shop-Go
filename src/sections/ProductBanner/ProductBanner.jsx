@@ -6,6 +6,7 @@ import ProductCost from "@/components/ProductCost"
 import classNames from "classnames"
 import Button from "@/components/Button"
 import productsItems from "/src/collections/products/products.js"
+import Sizes from "@/components/Sizes";
 
 const ProductBanner = () => {
    
@@ -23,7 +24,6 @@ const ProductBanner = () => {
         }, [id]);
 
     const [isActiveColor, setIsActiveColor] = useState(null)
-    const [isActiveSize, setIsActiveSize] = useState(null)
     const [countProducts, setCountProducts] = useState(0)
     const [indexMainSrc, setIndexMainSrc] = useState(0)
 
@@ -33,7 +33,6 @@ const ProductBanner = () => {
     useEffect(() => {
         if (product) {
             setIsActiveColor(product.colors[0]);
-            setIsActiveSize(null);
             setCountProducts(0);
             ScrollUp();
         }
@@ -115,22 +114,7 @@ const ProductBanner = () => {
                     </div>
                     <div className="product-banner__sizes">
                         <span className="product-banner__sizes-label">Choose Size</span>
-                        <ul className="product-banner__sizes-list">
-                            {product?.sizes.map((size,index) => (
-                                <li className="product-banner__sizes-item" key={index}>
-                                    <Button 
-                                    title = {size}
-                                    className = {classNames("product-banner__sizes-button", {"is-active" : isActiveSize === size })}
-                                    label = {size}
-                                    type = "button"
-                                    onClick = {(() => {
-                                        setIsActiveSize(size)
-                                    })}
-                                    mode = "sizes"
-                                    />
-                                </li>
-                            ))}
-                        </ul>
+                        <Sizes sizes={product.sizes} />
                     </div>
                     <div className="product-banner__actions">
                         <div className="product-banner__actions-count">

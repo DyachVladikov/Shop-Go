@@ -2,8 +2,8 @@ import classNames from "classnames";
 import Button from "../Button"
 import ProductCard from "../ProductCard";
 import "./Products.scss"
-import { useState, useEffect, useRef } from "react";
-import { Link, useParams} from "react-router-dom";
+import { useState, useEffect, useRef, use } from "react";
+import { Link,} from "react-router-dom";
 import Slider from "../Slider";
 import { createSwiperConfig } from "@/modules/SwiperConfig";
 
@@ -31,6 +31,8 @@ const Products = (props) => {
     const [showAll, setShowAll] = useState(false);
     const [width, setWidth] = useState(1440);
     const [initialVisible, setinitialVisible] = useState(4);
+
+    const targetScrollRef = useRef(null);
     
     useEffect(() => {
         window.addEventListener("resize", checkWidth)
@@ -63,7 +65,11 @@ const Products = (props) => {
     }
 
     const handleToggle = () => {
-        setShowAll((prev) => !prev);
+        setShowAll((prev) => {
+            if(prev === true)
+                targetScrollRef.current?.scrollIntoView({behavior: "smooth", block: 'center'});
+            return !prev
+        });
     };
 
     
@@ -73,17 +79,17 @@ const Products = (props) => {
     return (
         <div className="product">
             <div className="product__inner container">
-                <h2 className="product__title">{title}</h2>
+                <h2 className="product__title" ref={targetScrollRef}>{title}</h2>
                 <div className="product__body">
                     {width < 767 &&
                     (
                         <Slider className="products__slider"
-                        type = "products" config = {swiperConfig} 
+                        type = "products" config = {swiperConfig} key={width}
                         >
                             {visibleProducts}
                         </Slider>
                     )}
-                    <ul className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")}>
+                    <ul className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")} >
                         {visibleProducts.map((product, index) => (
                             <>
                                 <Link to={`/productdetails/${product.id}`} key={index}></Link>

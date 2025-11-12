@@ -1,0 +1,130 @@
+.select {
+    width: 100%;
+
+    &__mobile {
+        width: 100%;
+        border: none;
+
+        color: var(--color-black-transparent-06);
+        // Стрелка (кастомная)
+        // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        
+        // Убираем стандартную стрелку в IE
+        &::-ms-expand {
+            display: none;
+        }
+        
+        // Состояния
+        &:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        &:hover {
+            border-color: #999;
+        }
+        
+        // Отключенное состояние
+        &:disabled {
+            background-color: #f5f5f5;
+            color: #999;
+            cursor: not-allowed;
+        }
+    }
+
+    &__body {
+
+        &-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 40px;
+            font-family: "SatoshiR";
+            padding-inline: 4px;
+            color: var(--color-black-transparent-06);
+            img {
+                width: 16px;
+                height: 16px;
+            }
+
+            &-title {
+                flex-grow: 0;
+                text-align: start;
+                &.is-selected {
+                    color: var(--color-black);
+                    transform: scale(1.3);
+                    font-family: "Satoshi";
+                    flex-grow: 1;
+                    text-align: center;
+                    transition-duration: var(--transition-duration-longer);
+                }
+            }
+        }
+
+        &-button {
+            
+            position: absolute;
+            width: 100%;
+            img {
+                transition-duration: var(--transition-duration);
+            }
+            &.is-active {
+                img {
+                    rotate: 90deg;
+                }
+            }
+            .button__icon-item {
+                translate: 641% -68%;
+            }
+        }
+
+        &-options {
+            padding: 0;
+            row-gap: 10px;
+            transition:  grid-template-rows var(--transition-duration-longer) ease,
+            opacity var(--transition-duration) ease;
+            display: grid;
+            grid-template-rows:0fr;
+            opacity: 0;
+            overflow: hidden;
+
+            &.is-expanded {
+                opacity: 100%;
+                grid-template-rows:1fr;
+                padding: 0px 16px 10px 0px;
+            }
+
+            &-list {
+                min-height: 0;
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                
+            }
+
+            &-item {
+                background-color: transparent;
+                color: var(--color-black);
+                font-size: 16px;
+                font-family: "SatoshiR";
+                padding-block: 6px;
+                padding-inline: 4px;
+                border: none;
+                width: 100%;
+                text-align: start;
+                border-radius: var(--border-radius-s);
+                @include hover {
+                    background-color: var(--color-black);
+                    color: var(--color-white);
+                }
+
+            }
+
+        }
+        
+    }
+}

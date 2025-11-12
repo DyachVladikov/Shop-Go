@@ -194,18 +194,7 @@
             color: var(--color-black-transparent-06);
         }
 
-        &-list {
-            display: flex;
-            column-gap: fluid(12,8);
-            margin-bottom: 24px;
-        }
-
-        &-button {
-            &.is-active {
-                background-color: var(--color-black);
-                color: var(--color-white);
-            }
-        }
+        
         
     }
     &__actions {

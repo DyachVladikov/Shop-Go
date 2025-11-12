@@ -10,6 +10,7 @@ const Accrodion = (props) => {
         isNeedToHide = true,
         children,
         title,
+        isHrNeedAfterTitle = false,
     } = props
 
     const optionSrc = "/src/assets/icons/options.svg"
@@ -21,7 +22,7 @@ const Accrodion = (props) => {
 
 
     return(
-        <div className={classNames("accordion", className)}>
+        <div className={classNames("accordion", className, {"is-active-height" : isAccordionOpen})}>
             <div className="accordion__header">
                 <h2 className="accordion__header-title">{title}</h2>
                 <Button 
@@ -31,21 +32,18 @@ const Accrodion = (props) => {
                 iconLink = {currentIcon}
                 className = {classNames("accordion__header-title-button", {
                     "is-active": isAccordionOpen
-                })}
+                }, {"is-not-user-active": !isNeedToHide})}
                 type = "button"
                 onClick = {(() => {
                     setIsAccordionOpen((prev) => !prev)
                 })}
                 />
             </div>
-            <div className="accordion__body">
-                {isAccordionOpen && (
-                    <>
-                        {children}
-                        <div className="hr"/>
-                    </>
-                )}
-                
+            {isHrNeedAfterTitle && (
+                <div className="hr"></div>
+            )}
+            <div className={classNames("accordion__body", {"is-active" : isAccordionOpen})}>
+                {children}
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/grid";
 import Comment from "../Comment";
 import ProductCard from "../ProductCard";
 import classNames from "classnames";

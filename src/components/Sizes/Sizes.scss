@@ -1,0 +1,27 @@
+.sizes {
+    &__list {
+            display: flex;
+            column-gap: fluid(12,8);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 8px;
+            &::after {
+                display: none;
+            }
+        }
+    
+    &__item {
+
+        button {
+            &::after {
+                display: none;
+            }
+        }
+        &-button {
+            &.is-active {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+        }
+    }
+}
