@@ -1,23 +1,23 @@
 .select {
     width: 100%;
 
+    &.popular {
+        width: auto;
+    }
+
     &__mobile {
         width: 100%;
         border: none;
 
         color: var(--color-black-transparent-06);
-        // Стрелка (кастомная)
-        // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 12px center;
         background-size: 16px;
         
-        // Убираем стандартную стрелку в IE
         &::-ms-expand {
             display: none;
         }
         
-        // Состояния
         &:focus {
             outline: none;
             border-color: #007bff;
@@ -28,7 +28,6 @@
             border-color: #999;
         }
         
-        // Отключенное состояние
         &:disabled {
             background-color: #f5f5f5;
             color: #999;
@@ -78,7 +77,7 @@
                 }
             }
             .button__icon-item {
-                translate: 641% -68%;
+                left: 100%;
             }
         }
 

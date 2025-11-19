@@ -28,6 +28,7 @@
                     width: 16px;
                     height: 16px;
                     justify-self: end;
+                    left: 80%;
                 }
                 
                 &.is-active {        
@@ -39,7 +40,7 @@
 
                 &.is-not-user-active
                 {
-                    pointer-events: none;
+                    // pointer-events: none;
                     img {
                     width: 24px;
                     height: 24px;

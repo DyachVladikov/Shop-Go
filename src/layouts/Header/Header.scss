@@ -11,7 +11,8 @@
 
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              border-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 1s;
 
     &.is-stuck {
         transform: translateY(-5px);
@@ -22,6 +23,9 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         background: linear-gradient(90deg, #ffffff, #f8f9fa);
         opacity: 95%;
+    }
+    &.is-dark {
+        background: rgba(0, 0, 0, 0.25) 
     }
     @keyframes stickyBounce {
         0%   { transform: translateY(-10px); }

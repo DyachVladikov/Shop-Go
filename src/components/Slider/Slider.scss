@@ -19,6 +19,13 @@
             max-width: fluid(1440,350);
         }
     }
+
+    &-shop-products {
+        @include mobile {
+            margin-left: fluid(220,0);
+        }
+    }
+
     &-slide {
         margin-top: 0px !important;
     }

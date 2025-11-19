@@ -14,6 +14,7 @@ const Button = (props) => {
         type,
         onClick,
         children,
+        isIconBefore, // "before" || "after" || "null"
         mode, // "small" || "modal" || "black" || slider || sizes || gray
     } = props
 
@@ -32,6 +33,9 @@ const Button = (props) => {
         )}
         title={title}
         >
+            {isIconBefore === "before" && (
+                <img className="button__icon-before" src={iconLink} />
+            )}
             {(!isLabelHidden || !onlyIcon) && (
                 <span>{label}</span>
             )}
@@ -39,6 +43,9 @@ const Button = (props) => {
                 <img className={classNames("button__icon-item", {[`button__icon--${mode}`] : mode})} src={iconLink} />
             )}
             {children} 
+            {isIconBefore === "after" && (
+                <img className="button__icon-after" src={iconLink} />
+            )}
         </Component>
     )
 }

@@ -11,6 +11,7 @@ const Accrodion = (props) => {
         children,
         title,
         isHrNeedAfterTitle = false,
+        onClose,
     } = props
 
     const optionSrc = "/src/assets/icons/options.svg"
@@ -35,7 +36,10 @@ const Accrodion = (props) => {
                 }, {"is-not-user-active": !isNeedToHide})}
                 type = "button"
                 onClick = {(() => {
-                    setIsAccordionOpen((prev) => !prev)
+                    if(!isNeedToHide)
+                        onClose()
+                    else
+                        setIsAccordionOpen((prev) => !prev)
                 })}
                 />
             </div>

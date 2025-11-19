@@ -81,6 +81,18 @@
             filter: red !important;
             
         }
+        &-before, &-after {
+            width: fluid(20,16);
+            height: fluid(20,16);
+            max-width: max-content;
+        }
+
+        &-before {
+            margin-right: 8px;
+        }
+        &-after {
+            margin-left: 8px;
+        }
 
         &--small {
             width: 20px;

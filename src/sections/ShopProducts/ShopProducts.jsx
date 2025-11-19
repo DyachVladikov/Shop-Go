@@ -5,21 +5,56 @@ import Sizes from "@/components/Sizes"
 import Button from "@/components/Button"
 import Scroll from "@/components/Scroll"
 import Select from "@/components/Select"
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Slider from "@/components/Slider"
 import products from "@/collections/products/products"
 import {createSwiperConfig} from "@/modules/SwiperConfig"
 import { Navigation, Grid, Pagination} from "swiper/modules";
+import classNames from "classnames"
 
 const ShopProducts = () => {
 
     const [indexSelectExpanded, setIndexSelectExpanded] = useState(null)
+    const [isFiltersVisibleMobile, setIsFiltersVisibleMobile] = useState(false)
+    const [viewportWidth, SetviewportWidth] = useState(null)
+
+    const filtersRef = useRef(null);
+
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {SetviewportWidth(document.documentElement.clientWidth);
+        }) 
+    }, [viewportWidth])
+
+    useEffect(() => {
+        SetviewportWidth(document.documentElement.clientWidth)
+        const mainHtml = document.querySelector("[data-js-main-page]")
+        mainHtml?.classList.toggle("is-lock")
+    },[])
+
+    useEffect(() => {
+        const header = document.querySelector("[data-js-header]")
+        const mainHtml = document.querySelector("[data-js-main-page]")
+
+        if(viewportWidth < 1024)
+        {
+            filtersRef.current?.classList.toggle("is-filters-visible");
+            header?.classList.toggle("is-dark")
+            
+        }
+
+        mainHtml?.classList.toggle("is-lock")
+
+    }, [isFiltersVisibleMobile])
+
+    const SwitchVisible = () => {
+        setIsFiltersVisibleMobile((prev) => !prev)
+    }
 
     const colors = [
         "#00C12B", "#F50606", "#F5DD06", "#F57906", "#06CAF5", "#063AF5", "#7D06F5", "#F506A4", "#fff", "#000"
     ]
     const sizes = ["Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large" ]
-    const items = ["i1","i2","i3","i4","i5"]
 
     const filtersCategoriesItems = [
         {
@@ -63,9 +98,7 @@ const ShopProducts = () => {
     ]
 
     const isSelectExpanded = (idSelect) => {
-        setIndexSelectExpanded(prevId => prevId === idSelect ? null : idSelect)
-        console.log(swiperConfig);
-        
+        setIndexSelectExpanded(prevId => prevId === idSelect ? null : idSelect)    
     }
 
     const swiperConfig = createSwiperConfig({
@@ -73,13 +106,14 @@ const ShopProducts = () => {
             nextSelector: ".swiper-next",
             pagination: {
                 selector: ".shop-products__actions-pagination",
-                type: "bullets",
-                clickable: true,
+                type: "custom-numbers",
+                clickable: false,
+                maxVisibleNumbers: 5, 
             },
             options: {
             modules: [Navigation, Grid, Pagination],
             slidesPerView: 3,
-            slidesPerGroup: 9,
+            slidesPerGroup: 3,
             centeredSlides: false,
             spaceBetween: 16,
             grid: {
@@ -87,9 +121,36 @@ const ShopProducts = () => {
                 fill: "row" 
             },
             breakpoints: {
-                1200: {
+                350: {
+                slidesPerView: 2,
+                slidesPerGroup: 3,
+                spaceBetween: 20,
+                grid: {
+                    rows: 3,
+                    fill: "row" 
+                },
+                },
+                767: {
                 slidesPerView: 3,
-                slidesPerGroup: 9,
+                slidesPerGroup: 3,
+                spaceBetween: 20,
+                grid: {
+                    rows: 3,
+                    fill: "row" 
+                },
+                },
+                1024: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 20,
+                grid: {
+                    rows: 3,
+                    fill: "row" 
+                },
+                },
+                1280: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
                 spaceBetween: 20,
                 grid: {
                     rows: 3,
@@ -97,9 +158,9 @@ const ShopProducts = () => {
                 },
                 },
 
-                1440: {
+                1441: {
                 slidesPerView: 4,
-                slidesPerGroup: 12,
+                slidesPerGroup: 4,
                 spaceBetween: 20,
                 grid: {
                     rows: 3,
@@ -111,17 +172,20 @@ const ShopProducts = () => {
     });
 
     return(
-        <section className="shop-products">
+        <section className="shop-products container">
             <header className="shop-products__header">
                 <h1 className="visually-hidden">Shop</h1>
                 <div>Navigation Component</div>
             </header>
             <div className="shop-products__body">
-                <aside className="shop-products__filters">
+                <aside className={classNames("shop-products__filters", 
+                    {"is-mobile-active" :viewportWidth < 1024 }
+                    )} ref={filtersRef}>
                     <div className="shop-products__filters-categories">
                         <Accrodion
                         className = "accordion__categories"
                         isNeedToHide = {false}
+                        onClose = {SwitchVisible}
                         title = "Filters"
                         isHrNeedAfterTitle
                         >
@@ -188,24 +252,49 @@ const ShopProducts = () => {
                 </aside>
                 <div className="shop-products__main">
                         <div className="shop-products__type">
-                            <span>Casual</span>
+                            <h2 className="shop-products__type-name">Casual</h2>
                             <div className="shop-products__type-sort">
-                                <span>Showing 1-10 of 100 Products. Srt by:</span>
-                                <Select label="Most popular"/>
+                                <span>Showing 1-10 of 100 Products</span>
+                                <span className="hidden-tablet">. Srt by:</span>
+                                <Select className="popular hidden-tablet" label="Most popular"/>
                             </div>
+                            <Button 
+                            title = "Filters"
+                            isLabelHidden
+                            onlyIcon = {true}
+                            iconLink = "/src/assets/icons/filters.svg"
+                            className = "shop-products__filters-button visible-tablet"
+                            type = "button"
+                            onClick = {SwitchVisible}
+                            />
                         </div>
                         <div className="shop-products__stuff">
                             <Slider 
                             className = "shop-products"
                             config={swiperConfig}
-                            type="products">
+                            type="products"
+                            >
                                 {products}
                             </Slider>
                         </div>
                         <div className="shop-products__actions">
-                            <button className="shop-products__actions-prev swiper-prev" />
+                            <Button 
+                            title = "previous slide"
+                            iconLink = "/src/assets/icons/arrow-prev.svg"
+                            className = "shop-products__actions-prev swiper-prev"
+                            label = "Previous"
+                            type = "button"
+                            isIconBefore = "before"
+                            />
                             <div className="shop-products__actions-pagination swiper-pagination"></div>
-                            <button className="shop-products__actions-next swiper-next" />
+                            <Button 
+                            title = "next slide"
+                            iconLink = "/src/assets/icons/arrow-next.svg"
+                            className = "shop-products__actions-next swiper-next"
+                            label = "Next"
+                            type = "button"
+                            isIconBefore = "after"
+                            />
                         </div>
                 </div>
             </div>

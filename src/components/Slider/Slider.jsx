@@ -13,7 +13,7 @@ const Slider = (props) => {
     const {
         className,
         children = [],
-        type, // "customers" || "products",
+        type, // "customers" || "products" || "productsGroup"
         config,
     } = props
 
@@ -22,7 +22,6 @@ const Slider = (props) => {
             <Swiper 
                 {...config}            
             >
-                
                 {children.map((item,index) => (
                     <SwiperSlide key={index}>
                         {type === "customers" && (

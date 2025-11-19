@@ -31,6 +31,7 @@ const Products = (props) => {
     const [showAll, setShowAll] = useState(false);
     const [width, setWidth] = useState(1440);
     const [initialVisible, setinitialVisible] = useState(4);
+    const [visibleProducts, setVisibleProducts] = useState([])
 
     const targetScrollRef = useRef(null);
     
@@ -41,6 +42,10 @@ const Products = (props) => {
 
         return () => window.removeEventListener("resize", checkWidth);
     })
+    useEffect(() => {
+        setVisibleProducts(products.slice(0, initialVisible))  
+        
+    },[initialVisible])
 
     useEffect(() => {
         if(width < 767 && hasButton)
@@ -60,21 +65,30 @@ const Products = (props) => {
 
 
     const checkWidth = () => {
-        setWidth(window.innerWidth) 
-        
+        setWidth(window.innerWidth)    
     }
 
     const handleToggle = () => {
+        
         setShowAll((prev) => {
+            if(prev === false) {
+                if(initialVisible > 16)
+                    return !prev
+                else
+                {
+                    setinitialVisible((prev) => (prev + 4))
+                    return prev
+                }
+            }
             if(prev === true)
+            {
                 targetScrollRef.current?.scrollIntoView({behavior: "smooth", block: 'center'});
-            return !prev
+                setinitialVisible(4)
+                return !prev
+            }
         });
+        
     };
-
-    
-
-    const visibleProducts = showAll ? products : products.slice(0, initialVisible);    
 
     return (
         <div className="product">
@@ -89,20 +103,20 @@ const Products = (props) => {
                             {visibleProducts}
                         </Slider>
                     )}
-                    <ul className={classNames("product__body-list", {"product__body-list--opened" : showAll}, "hidden-mobile")} >
+                    <ul className={classNames("product__body-list", {"product__body-list--opened" : initialVisible > 5}, "hidden-mobile")} >
                         {visibleProducts.map((product, index) => (
-                            <>
+                            <li key={index}>
                                 <Link to={`/productdetails/${product.id}`} key={index}></Link>
                                 <ProductCard 
                                 {...product}
                                 />
-                            </>
+                            </li>
                             
                         ))}
                     </ul>
                     {products.length > initialVisible && hasButton && (
                         <Button className="product__body-button" type = "button" onClick={handleToggle}>
-                        {showAll ? "Hide" : "View All"}
+                        {showAll ? "Hide" : "View More"}
                         </Button>
                     )}
                 </div>
