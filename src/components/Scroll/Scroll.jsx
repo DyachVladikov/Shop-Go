@@ -3,59 +3,69 @@ import "./Scroll.scss"
 import React, { useState } from "react";
 const Scroll = (props) => {
 
-  const {min, max} = props
-  const [minValue, setMinValue] = useState(50);
-  const [maxValue, setMaxValue] = useState(200);
-  const gap = 150;
+  const {min, max, onScrollChange} = props
 
-  const handleMinChange = (e) => {
+    const [minPrice, setMinPrice] = useState(20);
+    const [maxPrice, setMaxPrice] = useState(190);
+    const maxRange = max;
+    const minGap = min;
+
+    const handleRangeChange = (e) => {
     const value = parseInt(e.target.value);
-    if (maxValue - value >= gap) setMinValue(value);
-    
+    const isMin = e.target.id === "range-min";
+
+    if (isMin) {
+      if (value > maxPrice - minGap) {
+        setMinPrice(maxPrice - minGap);
+      } else {
+        setMinPrice(value);
+      }
+    } else {
+      if (value < minPrice + minGap) {
+        setMaxPrice(minPrice + minGap);
+      } else {
+        setMaxPrice(value);
+      }
+    }
+    onScrollChange(minPrice,maxPrice)
   };
 
-  const handleMaxChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value - minValue >= gap) setMaxValue(value);
+  const trackStyle = {
+    left: `${(minPrice / maxRange) * 100}%`,
+    width: `${((maxPrice - minPrice) / maxRange) * 100}%`
   };
-
-  const leftPercent = (minValue / max) * 100;
-  const rightPercent = 100 - (maxValue / max) * 100;
 
   return (
-    <div className="price-range-container">
-      <div className="slider">
-        <div
-          className="progress"
-          style={{ left: `${leftPercent}%`, right: `${rightPercent}%` }}
-        ></div>
+    <div className="price-section">
+        <div className="range-slider">
+          <div className="slider-track"></div>
+          <div className="slider-track-active" style={trackStyle}></div>
+          
+          <input 
+            type="range" 
+            className="range-input" 
+            id="range-min"
+            min="0" 
+            max={maxRange} 
+            value={minPrice} 
+            onChange={handleRangeChange}
+          />
+          <input 
+            type="range" 
+            className="range-input" 
+            id="range-max"
+            min="0" 
+            max={maxRange} 
+            value={maxPrice} 
+            onChange={handleRangeChange}
+          />
+        </div>
+        <div className="price-labels">
+          <span>${minPrice}</span>
+          <span>${maxPrice}</span>
+        </div>
       </div>
-
-      <div className="range-input">
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={minValue}
-          onChange={handleMinChange}
-          className="range-min"
-        />
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={maxValue}
-          onChange={handleMaxChange}
-          className="range-max"
-        />
-      </div>
-
-      <div className="price-labels">
-        <span style={{ left: `${leftPercent}%` }}>${minValue}</span>
-        <span style={{  right: `${rightPercent}%` }}>${maxValue}</span>
-      </div>
-    </div>
-  );
+  )
 };
 
 export default Scroll

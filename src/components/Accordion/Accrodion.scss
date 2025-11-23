@@ -16,13 +16,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // margin-bottom: 24px;
+        position: relative;
         &-title {
             font-size: 20px;
             font-family: "Satoshi";
             font-weight: 500;
             &-button {
-                
                 img {
                     transition: rotate var(--transition-duration) ease;
                     width: 16px;
@@ -37,14 +36,21 @@
                         rotate: 180deg;
                     }
                 }
-
-                &.is-not-user-active
-                {
-                    // pointer-events: none;
-                    img {
-                    width: 24px;
-                    height: 24px;
-                }
+                &.is-not-user-active {
+                    @include tablet-above {
+                        pointer-events: none;
+                    }
+                    position: absolute;
+                    right: -10%;
+                    top: -10%;
+                    & > * {
+                        background: transparent;
+                        width: 24px;
+                        height: 24px;
+                        top: 35%;
+                        right: -12%;
+                        
+                    }
                 }
             }
         }

@@ -5,18 +5,37 @@ import Sizes from "@/components/Sizes"
 import Button from "@/components/Button"
 import Scroll from "@/components/Scroll"
 import Select from "@/components/Select"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
+import {Link, useNavigate, useParams } from "react-router-dom"
 import Slider from "@/components/Slider"
 import products from "@/collections/products/products"
 import {createSwiperConfig} from "@/modules/SwiperConfig"
 import { Navigation, Grid, Pagination} from "swiper/modules";
 import classNames from "classnames"
+import NavigationProduct from "@/components/NavigationProduct"
 
 const ShopProducts = () => {
+    const { category } = useParams();
+    
 
     const [indexSelectExpanded, setIndexSelectExpanded] = useState(null)
     const [isFiltersVisibleMobile, setIsFiltersVisibleMobile] = useState(false)
     const [viewportWidth, SetviewportWidth] = useState(null)
+    const [currentNameCategory, setCurrentNameCategory] = useState(category
+        .charAt(0).toUpperCase() + category.slice(1))
+    const [navigationPath, setNavigationPath] = useState([category
+        .charAt(0).toUpperCase() + category.slice(1)])
+    const [filterOptions, setFilterOptions] = useState({
+        type: "",
+        minPrice: 0,
+        maxPrice: 10000,
+        colors: [],
+        sizes: [],
+        dressStyle: "",
+    })
+    const [filterProducts, setFilterProducts] = useState(products)
+
+    const navigate = useNavigate()
 
     const filtersRef = useRef(null);
 
@@ -98,8 +117,92 @@ const ShopProducts = () => {
     ]
 
     const isSelectExpanded = (idSelect) => {
-        setIndexSelectExpanded(prevId => prevId === idSelect ? null : idSelect)    
+        setIndexSelectExpanded(prevId => prevId === idSelect ? null : idSelect)   
     }
+
+    const onClickItem = (nameTypeEl) => { 
+        setCurrentNameCategory(nameTypeEl)
+        navigate(`/shop/${nameTypeEl}`, {replace: true})
+        setNavigationPath((prev) => {
+            prev[0] = nameTypeEl
+            return prev
+        })
+        setFilterOptions((prev) => ({
+            ...prev,
+            dressStyle: nameTypeEl
+        }))
+    }
+    const onClickOption = (nameTypeEl, id) => {
+        setNavigationPath((prev) => {
+            prev[1] = nameTypeEl
+            return prev
+        })  
+        isSelectExpanded(id)
+        setFilterOptions((prev) => ({
+            ...prev,
+            type: nameTypeEl
+        }))
+    }
+
+    //фильтрация
+    const onScrollChange = (minPrice, maxPrice) => {
+        setFilterOptions((prev) => ({
+            ...prev,
+            minPrice: minPrice,
+            maxPrice: maxPrice
+        }))
+    }
+    const onColorChange = (currentColor) => {
+        setFilterOptions((prev) => ({
+            ...prev,
+            colors: prev.colors.includes(currentColor) ? prev.colors.filter((item) => item !== currentColor): [currentColor, ...prev.colors]
+        }))
+    }
+    const onSizeChoose = (currentSize) => {
+        setFilterOptions((prev) => ({
+            ...prev,
+            sizes: prev.sizes.includes(currentSize) ? prev.sizes.filter((item) => item !== currentSize) : [currentSize, ...prev.sizes]
+        }))
+    }
+
+
+   const setFilteres = () => {
+        setFilterProducts(() => {
+            const filtered = products.filter((product) => {
+                console.log("dff");
+                
+                if (filterOptions.sizes.length > 0) {
+                    return filterOptions.sizes.some(size => product.sizes.includes(size));
+                }
+                if(filterOptions.colors.length > 0){
+                    return filterOptions.colors.some(color => product.colors.includes(color))
+                }
+                if(filterOptions.minPrice > product.cost || filterOptions.maxPrice < product.cost){
+                    return false
+                } 
+                if(filterOptions.type != product.type && filterOptions.type != ""){
+                    return false
+                }
+                if(filterOptions.dressStyle != product.dressStyle && filterOptions.dressStyle != ""){
+                    return false
+                }
+                return true
+            })
+            return filtered;
+        });
+    }
+
+           /*  useMemo(() => {
+        return products.filter((product) => {
+            if (filterOptions.sizes.length > 0 && 
+                !filterOptions.sizes.some(size => product.sizes.includes(size))) {
+                return false;
+            }
+            return true;
+        });
+        }, [products, filterOptions.sizes])) */
+    
+
 
     const swiperConfig = createSwiperConfig({
             prevSelector: ".swiper-prev",
@@ -175,7 +278,7 @@ const ShopProducts = () => {
         <section className="shop-products container">
             <header className="shop-products__header">
                 <h1 className="visually-hidden">Shop</h1>
-                <div>Navigation Component</div>
+                <NavigationProduct path={navigationPath} />
             </header>
             <div className="shop-products__body">
                 <aside className={classNames("shop-products__filters", 
@@ -193,7 +296,8 @@ const ShopProducts = () => {
                                 <Select label={category.label} items={category.items} 
                                 id={index} onClick={isSelectExpanded} 
                                 isExpanded = {indexSelectExpanded === index} 
-                                key={index}/>
+                                key={index} onClickItem = {() => {}}
+                                onClickOption = {onClickOption}/>
                             ))}     
                         </Accrodion>
                     </div>
@@ -203,7 +307,7 @@ const ShopProducts = () => {
                         isNeedToHide
                         title = "Price"
                         >
-                            <Scroll className="price" max="500" min="20" />
+                            <Scroll className="price" max={500} min={20} onScrollChange ={onScrollChange} />
                         </Accrodion>
                     </div>
                     <div className="shop-products__filters-colors">
@@ -212,7 +316,7 @@ const ShopProducts = () => {
                         isNeedToHide
                         title = "Colors"
                         >
-                            <Colors colors={colors} />
+                            <Colors colors={colors} onColorChange={onColorChange} selectedColors={filterOptions.colors}/>
                         </Accrodion>
                         
                     </div>
@@ -222,20 +326,24 @@ const ShopProducts = () => {
                         isNeedToHide
                         title = "Sizes"
                         >
-                            <Sizes sizes={sizes}/>
+                            <Sizes sizes={sizes} onSizeChoose={onSizeChoose} selectedSizes ={filterOptions.sizes}/>
                         </Accrodion>
                     </div>
                     <div className="shop-products__filters-styles">
                         <Accrodion
-                        className = "accordion__categories"
+                        className = "accordion__categories" 
                         isNeedToHide
                         title = "Dress Style"
                         >
                             {stylesCategoriesItems.map((category,index) => (
-                                <Select label={category.label} items={category.items} 
-                                id={index + filtersCategoriesItems.length} onClick={isSelectExpanded} 
-                                isExpanded = {indexSelectExpanded === index + filtersCategoriesItems.length} 
-                                key={index}/>
+                                <ol className="" key={index}>
+                                    <Link to={`/shop/${category.label}`} ></Link>
+                                    <Select label={category.label} items={category.items} 
+                                    id={index + filtersCategoriesItems.length} onClick={isSelectExpanded} 
+                                    isExpanded = {indexSelectExpanded === index + filtersCategoriesItems.length} 
+                                    key={index} onClickItem = {onClickItem} onClickOption ={() => {}}/>
+                                </ol>
+                                
                             ))}
                         </Accrodion>
                     </div>
@@ -245,14 +353,16 @@ const ShopProducts = () => {
                         className = "shop-products__filters-actions-button"
                         label ="Apply Filter"
                         type ="button"
-                        onClick ={() => {}} 
+                        onClick ={() => {
+                            setFilteres()
+                        }} 
                         mode="black"
                         />
                     </div>
                 </aside>
                 <div className="shop-products__main">
                         <div className="shop-products__type">
-                            <h2 className="shop-products__type-name">Casual</h2>
+                            <h2 className="shop-products__type-name">{currentNameCategory}</h2>
                             <div className="shop-products__type-sort">
                                 <span>Showing 1-10 of 100 Products</span>
                                 <span className="hidden-tablet">. Srt by:</span>
@@ -272,9 +382,10 @@ const ShopProducts = () => {
                             <Slider 
                             className = "shop-products"
                             config={swiperConfig}
+                            key={products.length}
                             type="products"
                             >
-                                {products}
+                                {filterProducts}
                             </Slider>
                         </div>
                         <div className="shop-products__actions">

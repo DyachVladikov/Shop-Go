@@ -1,3 +1,5 @@
+import DressStyle from "@/sections/DressStyle"
+
 const products = [
     {
         id: 0,
@@ -13,7 +15,8 @@ const products = [
         colors : ["#4F4631", "#31344F", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"],
         gender: "Men",
-        type: "T-shirt",
+        type: "T-shirt-1",
+        dressStyle: "Casual"
     },
     {
         id: 1,
@@ -27,7 +30,8 @@ const products = [
         colors : ["#4F4631", "#31344F", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"],
         gender: "uniSex",
-        type: "Jeans",
+        type: "Jeans-1",
+        dressStyle: "Casual"
     },
     {
         id: 2,
@@ -39,7 +43,9 @@ const products = [
         discount: 0,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
         colors : ["#4F4631", "#31344F", "#314F4A"],
-        sizes : ["Small", "Medium", "Large", "X-Large"]
+        sizes : ["Small", "Medium", "Large", "X-Large"],
+        type: "Jeans-2",
+        dressStyle: "Casual",
     },
     {
         id: 3,
@@ -51,6 +57,8 @@ const products = [
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
         colors : ["#4F4631", "#31344F", "#314F4A"],
+        type: "Jeans-3",
+        dressStyle: "Gym",
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -63,6 +71,7 @@ const products = [
         discount: 0,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
         colors : ["#4F4631", "#31344F", "#314F4A"],
+        dressStyle: "Formal",
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -182,7 +191,7 @@ const products = [
         src: ["/src/assets/images/products/15.png"],
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#4F4631", "#00C12B", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -195,7 +204,7 @@ const products = [
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
         colors : ["#4F4631", "#31344F", "#314F4A"],
-        sizes : ["Small", "Medium", "Large", "X-Large"]
+        sizes : ["Small", "4X-Large", "Large", "X-Large"]
     },
     {
         id: 16,
@@ -207,7 +216,7 @@ const products = [
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
         colors : ["#4F4631", "#31344F", "#314F4A"],
-        sizes : ["Small", "Medium", "Large", "X-Large"]
+        sizes : ["Small", "XX-Large", "Large", "X-Large"]
     },
     {
         id: 17,
@@ -308,7 +317,7 @@ const products = [
         src: ["/src/assets/images/products/3.png"],
         discount: 0,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#4F4631", "#00C12B", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -380,7 +389,7 @@ const products = [
         src: ["/src/assets/images/products/9.png"],
         discount: 0,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#4F4631", "#31344F", "#00C12B"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -452,7 +461,7 @@ const products = [
         src: ["/src/assets/images/products/15.png"],
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#00C12B", "#31344F", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -536,7 +545,7 @@ const products = [
         src: ["/src/assets/images/products/16.png"],
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#00C12B", "#31344F", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -626,7 +635,7 @@ const products = [
         src: ["/src/assets/images/products/7.png"],
         discount: 0,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#4F4631", "#00C12B", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {
@@ -758,7 +767,7 @@ const products = [
         src: ["/src/assets/images/products/15.png"],
         discount: 30,
         description : "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-        colors : ["#4F4631", "#31344F", "#314F4A"],
+        colors : ["#00C12B", "#31344F", "#314F4A"],
         sizes : ["Small", "Medium", "Large", "X-Large"]
     },
     {

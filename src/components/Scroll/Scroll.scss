@@ -1,63 +1,82 @@
-.price-range-container {
-  width: 100%;
-  user-select: none;
-
-  .slider {
+.price-section {
     position: relative;
-    height: 6px;
-    background: #e0e0e0;
-    border-radius: 3px;
+    z-index: 1;
 
-    .progress {
-      position: absolute;
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .range-slider {
+      position: relative;
+      width: 100%;
+      height: 5px;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+
+    .slider-track {
+      width: 100%;
       height: 6px;
-      background: black;
+      background-color: var(--color-black-transparent);
+      position: absolute;
+      top: 0;
       border-radius: 3px;
     }
-  }
 
-  .range-input {
-    position: relative;
-
-    input[type="range"] {
-      position: absolute;
-      width: 100%;
-      top: -6px;
+    .slider-track-active {
       height: 6px;
+      background-color: black;
+      position: absolute;
+      top: 0;
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    .range-input {
+      width: 100%;
+      position: absolute;
+      top: -6px;
+      height: 20px;
       background: none;
       pointer-events: none;
       -webkit-appearance: none;
+      appearance: none;
+      z-index: 2;
+      margin: 0;
 
       &::-webkit-slider-thumb {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: black;
-        pointer-events: auto;
         -webkit-appearance: none;
+        pointer-events: auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: black;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 0 2px white;
       }
 
       &::-moz-range-thumb {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: black;
         pointer-events: auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: black;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 0 2px white;
       }
     }
-  }
 
-  .price-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    span {
-      position: absolute;
-    }
-    &::after {
-      display: none;
+    .price-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 16px;
+      color: black;
     }
   }
-}

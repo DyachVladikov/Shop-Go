@@ -7,25 +7,25 @@ const DressStyle = () => {
             label: "Casual",
             id: "el1",
             imgSrc: "/src/assets/images/homePage/styleBanner/1.png",
-            href: "/shop",
+            href: "/shop/casual",
         },
         {
             label: "Formal",
             id: "el2",
             imgSrc: "/src/assets/images/homePage/styleBanner/2.png",
-            href: "/shop",
+            href: "/shop/formal",
         },
         {
             label: "Party",
             id: "el3",
             imgSrc: "/src/assets/images/homePage/styleBanner/3.png",
-            href: "/shop",
+            href: "/shop/party",
         },
         {
             label: "Gym",
             id: "el4",
             imgSrc: "/src/assets/images/homePage/styleBanner/4.png",
-            href: "/shop",
+            href: "/shop/gym",
         },
     ]
     return (

@@ -1,0 +1,25 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    &__item {
+        display: flex;
+        align-items: center;
+        font-size: fluid(16,14);
+        &--first {
+                color: var(--color-black-transparent-06);
+            }
+        &:not(:last-child)
+        {
+            &::after {
+                display: inline-block  ;
+                content: "";
+                background-image: url("/src/assets/icons/arrow-right.svg");
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+            }
+        }
+    }
+}   

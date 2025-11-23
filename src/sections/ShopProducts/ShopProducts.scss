@@ -2,6 +2,9 @@
     padding-inline: 100px;
     margin-top: 24px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(24,12);
 
     @include tablet {
         padding-inline: 50px;
@@ -57,6 +60,12 @@
                 margin-bottom: 30px;
             }
         }
+        &-button {
+            background: var(--color-black-transparent);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+        }
 
         &.is-mobile-active {
             position: absolute;
@@ -92,7 +101,7 @@
     &__actions {
         display: flex;
         justify-content: space-between;
-        row-gap: 16px;
+        row-gap: 8px;
         align-items: center;
         &-prev, &-next {
             width: fluid(110,90);
@@ -126,11 +135,16 @@
             align-items: inherit;
             justify-content: inherit;
             color: var(--color-black-transparent-06);
+            font-size: fluid(16,14);
         }
     }
     &__stuff {
-        margin-top: 30px;
+        margin-top: 16px;
         margin-bottom: fluid(52, 44);
+
+        @include tablet {
+            margin-top: 29px;
+        }
     }
 }
 .custom-numbers-pagination {

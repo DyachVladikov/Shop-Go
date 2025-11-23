@@ -26,7 +26,7 @@ const Header = () => {
     const navigationList = [
         {
             label: "Shop",
-            href: "/shop",
+            href: "/shop/casual",
         },
          {
             label: "On Scale",

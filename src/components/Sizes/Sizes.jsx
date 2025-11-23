@@ -4,20 +4,22 @@ import { useState } from "react"
 import classNames from "classnames"
 const Sizes = (props) => {
 
-    const {sizes} = props
+    const {sizes,onSizeChoose, selectedSizes = []} = props
 
     const [isActiveSize, setIsActiveSize] = useState(null)
+
     return (
         <ul className="sizes__list">
             {sizes.map((size,index) => (
-                    <li className="sizes__item" key={index}>
+                    <li className="sizes__item" key={index} id={index}>
                         <Button 
                         title = {size}
-                        className = {classNames("sizes__item-button", {"is-active" : isActiveSize === size })}
+                        className = {classNames("sizes__item-button", {'is-active': onSizeChoose === undefined ? isActiveSize === size: selectedSizes.includes(size)})}
                         label = {size}
                         type = "button"
                         onClick = {(() => {
                             setIsActiveSize(size)
+                            onSizeChoose(size)
                         })}
                         mode = "sizes"
                         />
