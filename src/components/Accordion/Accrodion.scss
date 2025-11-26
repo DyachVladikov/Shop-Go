@@ -40,9 +40,9 @@
                     @include tablet-above {
                         pointer-events: none;
                     }
-                    position: absolute;
-                    right: -10%;
-                    top: -10%;
+                    /* position: absolute; */
+                    //  right: -3%;
+                    // top: -10%; 
                     & > * {
                         background: transparent;
                         width: 24px;

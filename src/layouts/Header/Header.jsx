@@ -5,10 +5,11 @@ import { useState, useEffect} from "react"
 import InputForm from "@/components/InputForm"
 import stickyEffect from "@/modules/strickyEffect"
 import LockPage from "@/modules/LockPage"
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate, useNavigate } from "react-router-dom";
 
 const Header = () => {
 
+    const navigate = useNavigate()
     const [isreg, setisReg] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -48,6 +49,9 @@ const Header = () => {
 
     function closeModal() {
         setIsModalOpen(prev => !prev)
+    }
+    const onBasketClick = () => {
+        navigate("/order")
     }
     
     return (
@@ -144,7 +148,10 @@ const Header = () => {
                                 onlyIcon 
                                 iconLink ="/src/assets/icons/basket.svg"
                                 type="button"
-                                isLabelHidden />
+                                isLabelHidden 
+                                onClick={() => {
+                                    onBasketClick()
+                                }}/>
                                 <Button className="user-button"
                                 onlyIcon 
                                 iconLink ="/src/assets/icons/user.svg"

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Button from "../Button"
 import ProductCard from "../ProductCard";
 import "./Products.scss"
-import { useState, useEffect, useRef, use } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link,} from "react-router-dom";
 import Slider from "../Slider";
 import { createSwiperConfig } from "@/modules/SwiperConfig";

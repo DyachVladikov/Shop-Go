@@ -1,4 +1,5 @@
 import { Link} from "react-router-dom";
+import { memo } from "react";
 import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./ProductCard.scss"
@@ -30,4 +31,4 @@ const ProductCard = (props) => {
     )
 }
 
-export default ProductCard
+export default memo(ProductCard)

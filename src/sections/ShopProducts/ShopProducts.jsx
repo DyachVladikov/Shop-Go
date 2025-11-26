@@ -5,7 +5,7 @@ import Sizes from "@/components/Sizes"
 import Button from "@/components/Button"
 import Scroll from "@/components/Scroll"
 import Select from "@/components/Select"
-import { useEffect, useState, useRef, useMemo } from "react"
+import { useEffect, useState, useRef, useMemo, useCallback } from "react"
 import {Link, useNavigate, useParams } from "react-router-dom"
 import Slider from "@/components/Slider"
 import products from "@/collections/products/products"
@@ -145,25 +145,27 @@ const ShopProducts = () => {
     }
 
     //фильтрация
-    const onScrollChange = (minPrice, maxPrice) => {
+    const onScrollChange = useCallback((minPrice, maxPrice) => {
         setFilterOptions((prev) => ({
             ...prev,
             minPrice: minPrice,
             maxPrice: maxPrice
         }))
-    }
-    const onColorChange = (currentColor) => {
+    }, [])
+    const onColorChange = useCallback((currentColor) => {
         setFilterOptions((prev) => ({
             ...prev,
-            colors: prev.colors.includes(currentColor) ? prev.colors.filter((item) => item !== currentColor): [currentColor, ...prev.colors]
+            colors: prev.colors.includes(currentColor) 
+                ? prev.colors.filter(item => item !== currentColor)
+                : [currentColor, ...prev.colors]
         }))
-    }
-    const onSizeChoose = (currentSize) => {
+    }, [])
+    const onSizeChoose = useCallback((currentSize) => {
         setFilterOptions((prev) => ({
             ...prev,
             sizes: prev.sizes.includes(currentSize) ? prev.sizes.filter((item) => item !== currentSize) : [currentSize, ...prev.sizes]
         }))
-    }
+    }, [])
 
 
    const setFilteres = () => {
@@ -191,16 +193,6 @@ const ShopProducts = () => {
             return filtered;
         });
     }
-
-           /*  useMemo(() => {
-        return products.filter((product) => {
-            if (filterOptions.sizes.length > 0 && 
-                !filterOptions.sizes.some(size => product.sizes.includes(size))) {
-                return false;
-            }
-            return true;
-        });
-        }, [products, filterOptions.sizes])) */
     
 
 

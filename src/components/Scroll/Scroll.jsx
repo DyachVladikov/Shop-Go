@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import "./Scroll.scss"
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 const Scroll = (props) => {
 
   const {min, max, onScrollChange} = props
@@ -9,6 +9,7 @@ const Scroll = (props) => {
     const [maxPrice, setMaxPrice] = useState(190);
     const maxRange = max;
     const minGap = min;
+    
 
     const handleRangeChange = (e) => {
     const value = parseInt(e.target.value);
@@ -68,4 +69,4 @@ const Scroll = (props) => {
   )
 };
 
-export default Scroll
+export default memo(Scroll)

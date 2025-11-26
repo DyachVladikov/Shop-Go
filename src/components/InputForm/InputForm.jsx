@@ -7,6 +7,7 @@ const InputForm = (props) => {
         className,
         title,
         iconLink,
+        id,
     } = props
 
     const userText = (text) => {
@@ -17,7 +18,7 @@ const InputForm = (props) => {
     return(
         <div className={classNames("input", className)}>
             <img className="input__icon" src={iconLink} width={24} height={24}/>
-            <input className="input-element" id="searchInput" type="text" placeholder={title } onChange={(event) => {userText(event.target.value)}}/>
+            <input className="input-element" id={id} type="text" placeholder={title } onChange={(event) => {userText(event.target.value)}}/>
         </div>
     )
 }

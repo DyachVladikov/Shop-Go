@@ -1,8 +1,8 @@
 import Button from "../Button"
 import "./Sizes.scss"
-import { useState } from "react"
+import { memo, useState } from "react"
 import classNames from "classnames"
-const Sizes = (props) => {
+const Sizes = memo((props) => {
 
     const {sizes,onSizeChoose, selectedSizes = []} = props
 
@@ -27,6 +27,11 @@ const Sizes = (props) => {
             ))}
         </ul>
     )
-}
+}, (prevProps, nextProps) => {
+    return (
+        prevProps.onSizeChoose === nextProps.onSizeChoose &&
+        prevProps.selectedSizese === nextProps.selectedSizes
+    );
+});
 
 export default Sizes

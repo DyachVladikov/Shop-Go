@@ -1,0 +1,124 @@
+.order-card {
+    margin-top: 24px;
+    @include tablet {
+        padding-inline: 50px;
+    }
+    @include mobile {
+        padding-inline: 16px;
+    }
+    h1 {
+        margin-block: 24px;
+
+        @include mobile {
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+    }
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr fluid(505,250);
+        gap: 20px;
+
+        @include middle {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__products {
+        border: var(--border);
+        border-radius: var(--border-radius-m);
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: fluid(48,32);
+        height: auto;
+
+        @include mobile {
+            padding: 14px;
+        }
+    }
+
+    &__summary{
+        border: var(--border);
+        border-radius: var(--border-radius-m);
+        padding: 20px 24px;
+        max-height: 460px;
+        position: sticky;
+        top: 150px;
+
+        &-header-title {
+            font-family: "SatoshiB";
+            font-size: fluid(24,20);
+        }
+
+        &-body{
+            
+            &-list {
+                margin-top: fluid(24,16);
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                font-size: fluid(20,16);
+            }
+            &-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &-name {
+                    color: var(--color-black-transparent-06);
+                }
+            }
+            
+        }
+        &-footer {
+            display: flex;
+            flex-direction: column;
+            row-gap: fluid(24,26);
+            margin-top: 20px;
+            margin-bottom: fluid(24,16);
+
+            &-total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: "SatoshiR";
+
+                span {
+                    font-size: fluid(20,16);
+
+                    & + span{
+                        font-size: fluid(24,20);
+                        font-family: "SatoshiB";
+                    }
+                }
+            }
+            &-actions {
+                display: flex;
+                column-gap: 12px;
+            }
+            &-input {
+                width: 100%;
+            }
+            &-apply {
+                width: auto;
+                max-width: 119px;
+
+                @include middle {
+                    max-width: none;
+                    width: 50%;
+                }
+            }
+        }
+        &-submit-button {
+            width: 100%;
+        }
+
+        @include mobile {
+            padding: 14px;
+        }
+    }
+}

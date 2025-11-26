@@ -1,0 +1,50 @@
+.product-ordered {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 2fr 1fr;
+    column-gap: fluid(16,14);
+    &__image {
+        width: fluid(124,100);
+        height: fluid(124,100);
+        border-radius: var(--border-radius-s);
+        margin: auto;
+    }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2px;
+
+        span {
+            font-family: "SatoshiR";
+            font-size: fluid(14,12);
+        }
+        &-price {
+            font-family: "SatoshiB";
+            font-size: fluid(24,20);
+            margin-top: fluid(13,9);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: space-between;
+
+        &-count {
+            max-width: 126px;
+        }
+    }
+    &:not(:last-child)
+    {
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: calc(fluid(20,16) * -1);
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-black-transparent);
+        }
+    }
+    
+}

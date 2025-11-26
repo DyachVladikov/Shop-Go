@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails/ProductDetails.jsx';
 import Shop from './pages/Shop/Shop.jsx';
+import Order from './pages/Order/Order.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> }, // '/' — главная
       {path: "productdetails/:id", element: <ProductDetails />},
-      {path: "shop/:category", element: <Shop />}
+      {path: "shop/:category", element: <Shop />},
+      {path: "order", element: <Order />}
     ],
   },
 ]);

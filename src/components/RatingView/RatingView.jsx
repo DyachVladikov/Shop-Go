@@ -12,7 +12,7 @@ const RatingView = (props) => {
     const ariaLabel = `Rating ${value} stars`
 
     const viewLabel = `${value}/5`
-
+    
 
     return (
         <div className={classNames("rating-view", 
