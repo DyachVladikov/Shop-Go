@@ -1,17 +1,21 @@
 import Button from "@/components/Button"
 import "./Header.scss"
 import closeButton from "@/assets/icons/closeButton.svg"
-import { useState, useEffect} from "react"
+import { useState, useEffect, useContext} from "react"
 import InputForm from "@/components/InputForm"
 import stickyEffect from "@/modules/strickyEffect"
 import LockPage from "@/modules/LockPage"
 import { useLocation, Navigate, useNavigate } from "react-router-dom";
+import { CountProductsContent } from "@/context/countProductsContext"
+import classNames from "classnames"
 
 const Header = () => {
 
     const navigate = useNavigate()
     const [isreg, setisReg] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const {countProduct} = useContext(CountProductsContent)
 
     useEffect(() => {
         stickyEffect(); 
@@ -53,6 +57,7 @@ const Header = () => {
     const onBasketClick = () => {
         navigate("/order")
     }
+    
     
     return (
         <>
@@ -144,14 +149,20 @@ const Header = () => {
                                 iconLink ="/src/assets/icons/search-black.svg"
                                 type="button"
                                 isLabelHidden />
-                                <Button className="basket-button"
+                                <Button className="header__actions-basket-button"
                                 onlyIcon 
                                 iconLink ="/src/assets/icons/basket.svg"
                                 type="button"
                                 isLabelHidden 
                                 onClick={() => {
                                     onBasketClick()
-                                }}/>
+                                }}
+                                >
+                                    <div className={classNames("header__actions-basket-button-counter", {"is-ordered" : countProduct > 0})}>
+                                        <span>{countProduct}</span>
+                                    </div>
+                                </Button>
+                                
                                 <Button className="user-button"
                                 onlyIcon 
                                 iconLink ="/src/assets/icons/user.svg"

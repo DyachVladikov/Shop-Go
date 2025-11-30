@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails/ProductDetails.jsx';
 import Shop from './pages/Shop/Shop.jsx';
 import Order from './pages/Order/Order.jsx';
+import CountProductsContentProvider from "./context/countProductsContext.jsx"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CountProductsContentProvider>
+        <RouterProvider router={router} />
+    </CountProductsContentProvider>
   </StrictMode>,
 )

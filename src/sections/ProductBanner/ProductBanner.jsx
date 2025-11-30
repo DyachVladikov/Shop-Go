@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo, useContext } from "react"
 import { useParams} from "react-router-dom";
 import "./ProductBanner.scss"
 import RatingView from "@/components/RatingView"
@@ -7,12 +7,13 @@ import classNames from "classnames"
 import Button from "@/components/Button"
 import productsItems from "/src/collections/products/products.js"
 import Sizes from "@/components/Sizes";
+import { CountProductsContent } from "@/context/countProductsContext";
 
 const ProductBanner = () => {
    
     const products = productsItems
-    const { id } = useParams();
-    const text = useParams();
+    const { id } = useParams()
+    const {setCountProduct} = useContext(CountProductsContent)
 
     const [product, setProduct] = useState(null)
         useEffect(() => {
@@ -22,18 +23,24 @@ const ProductBanner = () => {
             })
             
         }, [id]);
+    const isProductINBasket = useMemo(() => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const inBasket = cart.some((item) => item.id === id)
+        return inBasket
+    })
 
     const [isActiveColor, setIsActiveColor] = useState(null)
-    const [countProducts, setCountProducts] = useState(0)
+    const [countProducts, setCountProducts] = useState(1)
     const [indexMainSrc, setIndexMainSrc] = useState(0)
+    const [isOrdereProductYet, setIsOrdereProductYet] = useState(isProductINBasket)
 
     const scrollRef = useRef(null)
-
+        
 
     useEffect(() => {
         if (product) {
             setIsActiveColor(product.colors[0]);
-            setCountProducts(0);
+            setCountProducts(1);
             ScrollUp();
         }
     }, [product]);
@@ -47,6 +54,27 @@ const ProductBanner = () => {
         top: elementTop - offset,
         behavior: "smooth"
         });
+    }
+
+    const SetProductInBasket =  () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existing = cart.some(item => item.id === id);
+        let updateCart = cart
+        if(existing)
+        {
+            setIsOrdereProductYet(false)
+            updateCart = cart.filter((item) => item.id !== id)
+        }
+        else
+        {
+            
+            setIsOrdereProductYet(true)
+            updateCart.push({ id, qty: countProducts });
+            
+        }
+        localStorage.setItem("cart", JSON.stringify(updateCart));
+        
     }
     if(!product) return <p>Загрузка</p>
     
@@ -121,10 +149,10 @@ const ProductBanner = () => {
                             <Button 
                                 title = "minus"
                                 isLabelHidden
-                                className = "product-banner__actions-button--count-m"
+                                className = {classNames("product-banner__actions-button--count-m", {"product-banner__actions-button--count--is-not-active":countProducts === 1})}
                                 type = "button"
                                 onClick = {(() => {
-                                    if(countProducts > 0)
+                                    if(countProducts > 1)
                                         setCountProducts(countProducts - 1)
                                 })}
                                 onlyIcon = {true}
@@ -134,10 +162,11 @@ const ProductBanner = () => {
                             <Button 
                                 title = "plus"
                                 isLabelHidden
-                                className = "product-banner__actions-button--count-p"
-                                type = "button"
+                                className = {classNames("product-banner__actions-button--count-p", {"product-banner__actions-button--count--is-not-active":countProducts === 20})}
+                                type = "button" 
                                 onClick = {(() => {
-                                    setCountProducts(countProducts + 1)
+                                    if(countProducts < 20)
+                                        setCountProducts(countProducts + 1)
                                 })}
                                 onlyIcon = {true}
                                 iconLink = "/src/assets/icons/plus.svg"
@@ -145,10 +174,13 @@ const ProductBanner = () => {
                         </div>
                         <Button 
                             title = "Add to Cart"
-                            className = "product-banner__actions-button--add"
-                            label = "Add to Cart"
+                            className = {classNames("product-banner__actions-button--add", {"product-banner__actions-button--is-ordered": isOrdereProductYet})}
+                            label = {!isOrdereProductYet ? "Add to Cart" : "Delete Cart"} 
                             type = "button"
-                            onClick = {(() => {})}
+                            onClick = {(() => {
+                                SetProductInBasket()
+                                setCountProduct(prev => prev += 1)
+                            })}
                             mode = "black"
                         />
                     </div>

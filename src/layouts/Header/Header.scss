@@ -248,6 +248,31 @@
             }
             
         }
+        &-basket-button {
+            
+            &-counter {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--color-white);
+                font-size: 14px;
+                text-align: center;
+                top:-2%;
+                right: 0px;
+                width: 20px;
+                height: 20px;
+                background-color: red;
+                border: none;
+                border-radius: 50%;
+                opacity: 0;
+                transition-duration: var(--transition-duration);
+
+                &.is-ordered {
+                    opacity: 100;
+                }
+            } 
+        }
     }
 
     &.is-active {

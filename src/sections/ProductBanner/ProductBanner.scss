@@ -221,22 +221,30 @@
         }
 
         &-button {
-
+            
             &--count {
                 
 
                 &-m {
                     translate: -35% 0;
+                    
                 }
                 &-p {
                     translate: 35% 0;
                 }
+                &--is-not-active {
+                img {
+                    transition-duration: var(--transition-duration);
+                    opacity: 0.3;
+                }
+            }
                 
             }
             &--add {
                 min-width: 236px;
                 width: 100%;
             }
+            
 
         }
     }

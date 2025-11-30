@@ -26,7 +26,7 @@
         }
     }
 
-    &__products {
+    &__products-list {
         border: var(--border);
         border-radius: var(--border-radius-m);
         padding: 20px 24px;
@@ -34,9 +34,23 @@
         flex-direction: column;
         row-gap: fluid(48,32);
         height: auto;
+        justify-content: flex-start;
 
         @include mobile {
             padding: 14px;
+        }
+        &--null {
+            margin-block: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 20px;
+            &-text {
+                font-family: "SatoshiB";
+                font-size: fluid(32,16);
+                text-align: center;
+                
+            }
         }
     }
 
@@ -70,6 +84,13 @@
 
                 &-name {
                     color: var(--color-black-transparent-06);
+                }
+                &-price-1 {
+                    color: #FF3333;
+
+                    &::before {
+                        content: "-";
+                    }
                 }
             }
             
