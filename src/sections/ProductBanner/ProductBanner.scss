@@ -243,6 +243,10 @@
             &--add {
                 min-width: 236px;
                 width: 100%;
+
+                &.is-invalid {
+                    @include disabled;
+                }
             }
             
 

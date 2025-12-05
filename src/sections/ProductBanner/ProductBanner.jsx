@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useContext } from "react"
+import { useState, useEffect, useRef, useMemo, useContext, useCallback } from "react"
 import { useParams} from "react-router-dom";
 import "./ProductBanner.scss"
 import RatingView from "@/components/RatingView"
@@ -33,6 +33,8 @@ const ProductBanner = () => {
     const [countProducts, setCountProducts] = useState(1)
     const [indexMainSrc, setIndexMainSrc] = useState(0)
     const [isOrdereProductYet, setIsOrdereProductYet] = useState(isProductINBasket)
+    const [sizeChoose, setSizeChoose] = useState(null)
+    const [error, setError] = useState(true)
 
     const scrollRef = useRef(null)
         
@@ -70,11 +72,21 @@ const ProductBanner = () => {
         {
             
             setIsOrdereProductYet(true)
-            updateCart.push({ id, qty: countProducts });
+            updateCart.push({ id, qty: countProducts, color:isActiveColor, size: sizeChoose});
             
         }
         localStorage.setItem("cart", JSON.stringify(updateCart));
         
+    }
+
+    const onSizeChange = useCallback((size) => {
+        setSizeChoose(size)
+        setError(false)
+    })
+
+    const OnSubmitClick = () => {
+        if(!sizeChoose)
+            setError(true)
     }
     if(!product) return <p>Загрузка</p>
     
@@ -142,7 +154,7 @@ const ProductBanner = () => {
                     </div>
                     <div className="product-banner__sizes">
                         <span className="product-banner__sizes-label">Choose Size</span>
-                        <Sizes sizes={product.sizes} />
+                        <Sizes sizes={product.sizes} onSizeChange={onSizeChange}/>
                     </div>
                     <div className="product-banner__actions">
                         <div className="product-banner__actions-count">
@@ -173,13 +185,16 @@ const ProductBanner = () => {
                             />
                         </div>
                         <Button 
-                            title = "Add to Cart"
-                            className = {classNames("product-banner__actions-button--add", {"product-banner__actions-button--is-ordered": isOrdereProductYet})}
+                            title = {error ? "Choose the size" : "Add to Cart"}
+                            className = {classNames("product-banner__actions-button--add", 
+                                {"product-banner__actions-button--is-ordered": isOrdereProductYet},
+                            {"product-banner__actions-button--add is-invalid" : error})}
                             label = {!isOrdereProductYet ? "Add to Cart" : "Delete Cart"} 
                             type = "button"
                             onClick = {(() => {
                                 SetProductInBasket()
                                 setCountProduct(prev => prev += 1)
+                                OnSubmitClick()
                             })}
                             mode = "black"
                         />

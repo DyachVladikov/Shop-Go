@@ -4,9 +4,9 @@ import { memo, useState } from "react"
 import classNames from "classnames"
 const Sizes = memo((props) => {
 
-    const {sizes,onSizeChoose, selectedSizes = []} = props
+    const {sizes,onSizeChoose, selectedSizes = [], onSizeChange} = props
 
-    const [isActiveSize, setIsActiveSize] = useState(null)
+    const [isActiveSize, setIsActiveSize] = useState()
 
     return (
         <ul className="sizes__list">
@@ -19,7 +19,7 @@ const Sizes = memo((props) => {
                         type = "button"
                         onClick = {(() => {
                             setIsActiveSize(size)
-                            onSizeChoose(size)
+                            onSizeChange(size)
                         })}
                         mode = "sizes"
                         />

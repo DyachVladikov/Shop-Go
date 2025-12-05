@@ -9,8 +9,6 @@ import classNames from "classnames";
 const ProductOrdered = (props) => {
     const {
         productId, 
-        size, 
-        color, 
         count,
         onClickCountChoose,
         onClickRemoveProduct,
@@ -21,18 +19,30 @@ const ProductOrdered = (props) => {
     const [currentProduct, setCurrentProduct] = useState(null)
     const ref = useRef()
     const { setCountProduct } = useContext(CountProductsContent)
+    const [ SizeAndColor, setSizeAndColor ] = useState({color:"", size:""})
 
     const RemoveElement = () => {
         const items = JSON.parse(localStorage.getItem("cart"))
 
         const currentItems = items.filter((item) => item.id != productId)
+
         localStorage.setItem("cart", JSON.stringify(currentItems))
         setCountProduct(currentItems.length);
     }
     useEffect(() => {
         getProductFromId()
         onClickCountChoose(count)
+        getSizeAndColor()
+        
     }, [])
+
+    const getSizeAndColor = () => {
+        const items = JSON.parse(localStorage.getItem("cart"))
+
+        const currentItems = items.find((item) => item.id === productId)
+        
+        setSizeAndColor({size: currentItems.size, color: currentItems.color})
+    }
 
     const getProductFromId = async () => {
         /* const product = await fetch("")
@@ -65,8 +75,8 @@ const ProductOrdered = (props) => {
                 >
                     <div className="product-ordered__description">
                         <h3 className="h5">{currentProduct?.title}</h3>
-                        <span>{`Size: ${size}`}</span>
-                        <span>{`Color: ${color}`}</span>
+                        <span>{`Size: ${SizeAndColor?.size}`}</span>
+                        <span>{`Color: ${SizeAndColor?.color}`}</span>
                         <h4 className="product-ordered__description-price">${currentProduct?.cost}</h4>
                     </div>
                 </Link>

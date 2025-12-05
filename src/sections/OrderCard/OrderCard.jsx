@@ -56,14 +56,6 @@ const OrderCard = () => {
     const GetProductsInfo = useCallback(() =>  {
         const totalCost = GetPrice().totalCost
         const totalDiscount = GetPrice().totalDiscount
-        
-        setInfoProducts((prev) => {
-            return {
-                ...prev,
-                cost: totalCost * prev?.count, 
-                discount: totalDiscount
-            }
-        });
     },[countTypeProduct,refreshTrigger])
 
     const onClickCountChoose = (count) => {
