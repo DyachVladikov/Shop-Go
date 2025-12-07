@@ -36,7 +36,7 @@ const OrderCard = () => {
     
     
     useEffect(() => {
-        GetProductsInfo()
+        // GetProductsInfo()
         setTotalPrice(GetPrice().totalCost * countTypeProduct)
         setTotalDiscount(GetDiscount())
     }, [countTypeProduct, refreshTrigger])
@@ -53,10 +53,10 @@ const OrderCard = () => {
     }
     
     
-    const GetProductsInfo = useCallback(() =>  {
+    /* const GetProductsInfo = useCallback(() =>  {
         const totalCost = GetPrice().totalCost
         const totalDiscount = GetPrice().totalDiscount
-    },[countTypeProduct,refreshTrigger])
+    },[countTypeProduct,refreshTrigger]) */
 
     const onClickCountChoose = (count) => {
         setCountTypeProduct(count)

@@ -246,6 +246,7 @@
 
                 &.is-invalid {
                     @include disabled;
+                    pointer-events: none;
                 }
             }
             

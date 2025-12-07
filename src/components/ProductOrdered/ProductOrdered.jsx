@@ -5,6 +5,7 @@ import "./ProductOrdered.scss"
 import products from "@/collections/products/products"
 import { CountProductsContent } from "@/context/countProductsContext"
 import classNames from "classnames";
+import { GetColorName } from 'hex-color-to-color-name';
 
 const ProductOrdered = (props) => {
     const {
@@ -20,6 +21,10 @@ const ProductOrdered = (props) => {
     const ref = useRef()
     const { setCountProduct } = useContext(CountProductsContent)
     const [ SizeAndColor, setSizeAndColor ] = useState({color:"", size:""})
+
+    const color = GetColorName(SizeAndColor?.color)
+    console.log(color);
+    
 
     const RemoveElement = () => {
         const items = JSON.parse(localStorage.getItem("cart"))
@@ -76,7 +81,7 @@ const ProductOrdered = (props) => {
                     <div className="product-ordered__description">
                         <h3 className="h5">{currentProduct?.title}</h3>
                         <span>{`Size: ${SizeAndColor?.size}`}</span>
-                        <span>{`Color: ${SizeAndColor?.color}`}</span>
+                        <span>{`Color: ${color}`}</span>
                         <h4 className="product-ordered__description-price">${currentProduct?.cost}</h4>
                     </div>
                 </Link>

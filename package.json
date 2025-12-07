@@ -12,6 +12,7 @@
   "dependencies": {
     "@a1rth/css-normalize": "^1.1.9",
     "classnames": "^2.5.1",
+    "hex-color-to-color-name": "^1.0.2",
     "imask": "^7.6.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

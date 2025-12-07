@@ -5,7 +5,7 @@ import Sizes from "@/components/Sizes"
 import Button from "@/components/Button"
 import Scroll from "@/components/Scroll"
 import Select from "@/components/Select"
-import { useEffect, useState, useRef, useMemo, useCallback } from "react"
+import { useEffect, useState, useRef, useMemo, useCallback, memo } from "react"
 import {Link, useNavigate, useParams } from "react-router-dom"
 import Slider from "@/components/Slider"
 import products from "@/collections/products/products"
@@ -32,6 +32,11 @@ const ShopProducts = () => {
         colors: [],
         sizes: [],
         dressStyle: "",
+    })
+
+    const scrollRef = useRef({
+        minPrice: 20,
+        maxPrice: 190,
     })
     const [filterProducts, setFilterProducts] = useState(products)
 
@@ -146,11 +151,8 @@ const ShopProducts = () => {
 
     //фильтрация
     const onScrollChange = useCallback((minPrice, maxPrice) => {
-        setFilterOptions((prev) => ({
-            ...prev,
-            minPrice: minPrice,
-            maxPrice: maxPrice
-        }))
+       scrollRef.current.maxPrice = maxPrice
+       scrollRef.current.minPrice = minPrice
     }, [])
     const onColorChange = useCallback((currentColor) => {
         setFilterOptions((prev) => ({
@@ -167,32 +169,42 @@ const ShopProducts = () => {
         }))
     }, [])
 
+   const setFilteres = useCallback(() => {
+    scrollRef.current.minPrice = scrollRef.current.minPrice;
+    scrollRef.current.maxPrice = scrollRef.current.maxPrice;
 
-   const setFilteres = () => {
-        setFilterProducts(() => {
-            const filtered = products.filter((product) => {
-                console.log("dff");
-                
-                if (filterOptions.sizes.length > 0) {
-                    return filterOptions.sizes.some(size => product.sizes.includes(size));
-                }
-                if(filterOptions.colors.length > 0){
-                    return filterOptions.colors.some(color => product.colors.includes(color))
-                }
-                if(filterOptions.minPrice > product.cost || filterOptions.maxPrice < product.cost){
-                    return false
-                } 
-                if(filterOptions.type != product.type && filterOptions.type != ""){
-                    return false
-                }
-                if(filterOptions.dressStyle != product.dressStyle && filterOptions.dressStyle != ""){
-                    return false
-                }
-                return true
-            })
-            return filtered;
-        });
-    }
+    setFilterOptions((prev) => {
+            const updatedFilterOptions = {
+                ...prev,
+                minPrice: scrollRef.current.minPrice,
+                maxPrice: scrollRef.current.maxPrice
+            };
+
+            setFilterProducts(() => {
+                const filtered = products.filter((product) => {
+                    if (updatedFilterOptions.sizes.length > 0) {
+                        return updatedFilterOptions.sizes.some(size => product.sizes.includes(size));
+                    }
+                    if(updatedFilterOptions.colors.length > 0){
+                        return updatedFilterOptions.colors.some(color => product.colors.includes(color))
+                    }
+                    if(updatedFilterOptions.minPrice > product.cost || updatedFilterOptions.maxPrice < product.cost){
+                        return false
+                    } 
+                    if(updatedFilterOptions.type != product.type && updatedFilterOptions.type != ""){
+                        return false
+                    }
+                    if(updatedFilterOptions.dressStyle != product.dressStyle && updatedFilterOptions.dressStyle != ""){
+                        return false
+                    }
+                    return true
+                })
+                return filtered;
+            });
+
+            return updatedFilterOptions;
+        })
+    }, [filterOptions])
     
 
 
@@ -405,4 +417,4 @@ const ShopProducts = () => {
     )
 }
 
-export default ShopProducts
+export default memo(ShopProducts)

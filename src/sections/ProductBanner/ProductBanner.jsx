@@ -193,7 +193,13 @@ const ProductBanner = () => {
                             type = "button"
                             onClick = {(() => {
                                 SetProductInBasket()
-                                setCountProduct(prev => prev += 1)
+                                setCountProduct((prev) => {
+                                    if(isOrdereProductYet)
+                                        prev -= 1
+                                    else
+                                        prev +=1
+                                    return prev
+                                })
                                 OnSubmitClick()
                             })}
                             mode = "black"
