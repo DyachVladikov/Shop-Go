@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import alias from '@rollup/plugin-alias'
 
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), alias({
@@ -22,10 +23,13 @@ export default defineConfig({
       }
     }
   },
+  build: {
+    target: 'es2020', 
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, "src")
     }
   },
-  base: "/Shop-Go/"
+  base: process.env.NODE_ENV === 'production' ? '/Shop-Go/' : '/',
 })

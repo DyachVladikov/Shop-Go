@@ -8,6 +8,7 @@ import LockPage from "@/modules/LockPage"
 import { useLocation, Navigate, useNavigate } from "react-router-dom";
 import { CountProductsContent } from "@/context/countProductsContext"
 import classNames from "classnames"
+import {img} from "@/modules/RepairImgSrc"
 
 const Header = () => {
 
@@ -124,7 +125,7 @@ const Header = () => {
                             />
                             <div className="header__logo">
                                 <Button className="header__logo-button" href="/">
-                                    <img src="/src/assets/icons/logo.svg" alt="Logo" loading="lazy"/>
+                                    <img src={"/icons/logo.svg"} alt="Logo" loading="lazy"/>
                                 </Button>
                                 
                             </div>
@@ -141,17 +142,17 @@ const Header = () => {
                         </nav>
                         <div className="header__actions">
                             <InputForm className="header__actions-search hidden-mobile" 
-                            iconLink = "/src/assets/icons/search.svg" 
+                            iconLink = "/icons/search.svg" 
                             title = "Search for products..."/>
                             <div className="header__actions-icons">
                                 <Button className="search-button visible-mobile"
                                 onlyIcon 
-                                iconLink ="/src/assets/icons/search-black.svg"
+                                iconLink ="/icons/search-black.svg"
                                 type="button"
                                 isLabelHidden />
                                 <Button className="header__actions-basket-button"
                                 onlyIcon 
-                                iconLink ="/src/assets/icons/basket.svg"
+                                iconLink ="/icons/basket.svg"
                                 type="button"
                                 isLabelHidden 
                                 onClick={() => {
@@ -165,7 +166,7 @@ const Header = () => {
                                 
                                 <Button className="user-button"
                                 onlyIcon 
-                                iconLink ="/src/assets/icons/user.svg"
+                                iconLink ="/icons/user.svg"
                                 type="button"
                                 isLabelHidden />
                             </div>

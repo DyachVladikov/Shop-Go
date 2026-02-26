@@ -1,6 +1,7 @@
 import InputForm from "@/components/InputForm"
 import "./Footer.scss"
 import Button from "@/components/Button"
+import {img} from "@/modules/RepairImgSrc"
 
 const Footer = () => {
 
@@ -45,43 +46,43 @@ const Footer = () => {
     const cards = [
         {
             label: "Visa",
-            href: "/src/assets/images/Footer/cards/1.png",
+            href: "/images/Footer/cards/1.png",
         },
         {
             label: "MasterCard",
-            href: "/src/assets/images/Footer/cards/2.png",
+            href: "/images/Footer/cards/2.png",
         },
         {
             label: "PayPal",
-            href: "/src/assets/images/Footer/cards/3.png",
+            href: "/images/Footer/cards/3.png",
         },
         {
             label: "ApplePay",
-            href: "/src/assets/images/Footer/cards/4.png",
+            href: "/images/Footer/cards/4.png",
         },
         {
             label: "GooglePay",
-            href: "/src/assets/images/Footer/cards/5.png",
+            href: "/images/Footer/cards/5.png",
         },
     ]
     const socials = [
         {
-            src: "/src/assets/icons/twitter.svg",
+            src: "/icons/twitter.svg",
             alt: "twitter",
             href: "/",
         },
         {
-            src: "/src/assets/icons/facebook.svg",
+            src: "/icons/facebook.svg",
             alt: "twitter",
             href: "/",
         },
         {
-            src: "/src/assets/icons/instagram.svg",
+            src: "/icons/instagram.svg",
             alt: "twitter",
             href: "/",
         },
         {
-            src: "/src/assets/icons/cat.svg",
+            src: "/icons/cat.svg",
             alt: "twitter",
             href: "/",
         },
@@ -98,7 +99,7 @@ const Footer = () => {
                             <InputForm 
                             className="footer__banner-wrapper-input"
                             title="Enter your email address"
-                            iconLink = "/src/assets/icons/latter.svg"
+                            iconLink = "/icons/latter.svg"
                             />
                             <Button 
                             title = "Subscribe to Newsletter"
@@ -112,7 +113,7 @@ const Footer = () => {
                 <div className="footer__body">
                     <div className="footer__body-left-side">
                         <Button className="footer__body-logo-button" href="/">
-                            <img src="/src/assets/icons/logo.svg" alt="Logo" loading="lazy"/>
+                            <img src="/icons/logo.svg" alt="Logo" loading="lazy"/>
                         </Button>
                         <p className="footer__body-description">We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
                         <div className="footer__body-soc1als">

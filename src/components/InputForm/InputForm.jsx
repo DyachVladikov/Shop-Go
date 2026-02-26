@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import "./InputForm.scss"
+import {img} from "@/modules/RepairImgSrc"
 
 const InputForm = (props) => {
 

@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import "./RatingView.scss"
+import {img} from "@/modules/RepairImgSrc"
 
 const RatingView = (props) => {
 
@@ -27,7 +28,7 @@ const RatingView = (props) => {
                  {"rating-view__stars--banner" : className === "banner"}
             )}>
                 <img className="rating-view__stars-filled" 
-                src="/src/assets/icons/stars.svg"
+                src="/icons/stars.svg"
                 width={98}
                 height={18}
                 alt=""/>

@@ -4,6 +4,7 @@ import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./ProductCard.scss"
 import ProductCost from "../ProductCost"
+import {img} from "@/modules/RepairImgSrc"
 
 const ProductCard = (props) => {
 

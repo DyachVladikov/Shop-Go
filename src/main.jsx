@@ -19,7 +19,12 @@ const router = createBrowserRouter([
       {path: "order", element: <Order />}
     ],
   },
-]);
+  
+],
+/* {
+    basename: "/Shop-Go",
+} */
+);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

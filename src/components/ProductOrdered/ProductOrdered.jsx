@@ -6,6 +6,7 @@ import products from "@/collections/products/products"
 import { CountProductsContent } from "@/context/countProductsContext"
 import classNames from "classnames";
 import { GetColorName } from 'hex-color-to-color-name';
+import {img} from "@/modules/RepairImgSrc"
 
 const ProductOrdered = (props) => {
     const {

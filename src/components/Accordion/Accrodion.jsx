@@ -14,10 +14,7 @@ const Accrodion = (props) => {
         onClose,
     } = props
 
-    const optionSrc = "/src/assets/icons/options.svg"
-    const arrowSrc = "/src/assets/icons/arrow-down.svg"
-
-    const currentIcon = isNeedToHide ? arrowSrc : optionSrc
+    const currentIcon = isNeedToHide ? "/icons/arrow-down.svg" : "/icons/options.svg"
 
     const [isAccordionOpen, setIsAccordionOpen] = useState(true);
 

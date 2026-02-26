@@ -24,7 +24,7 @@ const Comment = (props) => {
                     title = "options"
                     isLabelHidden
                     onlyIcon
-                    iconLink = "/src/assets/icons/points.svg"
+                    iconLink = "/icons/points.svg"
                     className = "comment__button-options"
                     type = "button"
                     onClick = {() => {}} />

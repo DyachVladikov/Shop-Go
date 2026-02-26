@@ -2,6 +2,18 @@ import Button from "@/components/Button"
 import "./Banner.scss"
 import BannerTag from "@/components/BannerTag"
 
+import people1 from '@/assets/images/homePage/people1.jpg';
+import star1 from '@/assets/images/homePage/star1.png';
+import star2 from '@/assets/images/homePage/star2.png';
+
+import develper1 from "/src/assets/images/homePage/developers/1.png"
+import develper2 from "/src/assets/images/homePage/developers/2.png"
+import develper3 from "/src/assets/images/homePage/developers/3.png"
+import develper4 from "/src/assets/images/homePage/developers/4.png"
+import develper5 from "/src/assets/images/homePage/developers/5.png"
+
+
+
 const Banner = () => {
 
     const Tags = [
@@ -20,11 +32,11 @@ const Banner = () => {
     ]
 
     const developers = [
-        "/src/assets/images/homePage/developers/1.png",
-        "/src/assets/images/homePage/developers/2.png",
-        "/src/assets/images/homePage/developers/3.png",
-        "/src/assets/images/homePage/developers/4.png",
-        "/src/assets/images/homePage/developers/5.png"
+        develper1,
+        develper2,
+        develper3,
+        develper4,
+        develper5,
     ]
 
     return (
@@ -48,9 +60,9 @@ const Banner = () => {
                 </div>
             </div>
             <div className="banner__images">
-                <img className="banner__images-people" src="/src/assets/images/homePage/people1.jpg" />
-                <img className="banner__images-star1" src="/src/assets/images/homePage/star1.png" />
-                <img className="banner__images-star2" src="/src/assets/images/homePage/star2.png" />
+                <img className="banner__images-people" src={people1} />
+                <img className="banner__images-star1" src={star1} />
+                <img className="banner__images-star2" src={star2} />
             </div>
             </div>
             <div className="banner__footer">

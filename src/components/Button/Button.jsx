@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import "./Button.scss"
+import {img} from  "@/modules/RepairImgSrc"
 
 const Button = (props) => {
 
@@ -36,7 +37,7 @@ const Button = (props) => {
         title={title}
         >
             {isIconBefore === "before" && (
-                <img className="button__icon-before" src={iconLink} />
+                <img className="button__icon-before" src={img(iconLink)} />
             )}
             {(!isLabelHidden || !onlyIcon) && (
                 <span>{label}</span>
@@ -46,7 +47,7 @@ const Button = (props) => {
             )}
             {children} 
             {isIconBefore === "after" && (
-                <img className="button__icon-after" src={iconLink} />
+                <img className="button__icon-after" src={img(iconLink)} />
             )}
         </Component>
     )
