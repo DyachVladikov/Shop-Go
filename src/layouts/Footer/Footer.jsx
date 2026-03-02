@@ -46,45 +46,45 @@ const Footer = () => {
     const cards = [
         {
             label: "Visa",
-            href: "/images/Footer/cards/1.png",
+            href: img("images/Footer/cards/1.png"),
         },
         {
             label: "MasterCard",
-            href: "/images/Footer/cards/2.png",
+            href: img("images/Footer/cards/2.png"),
         },
         {
             label: "PayPal",
-            href: "/images/Footer/cards/3.png",
+            href: img("images/Footer/cards/3.png"),
         },
         {
             label: "ApplePay",
-            href: "/images/Footer/cards/4.png",
+            href: img("images/Footer/cards/4.png"),
         },
         {
             label: "GooglePay",
-            href: "/images/Footer/cards/5.png",
+            href: img("images/Footer/cards/5.png"),
         },
     ]
     const socials = [
         {
-            src: "/icons/twitter.svg",
+            src: img("icons/twitter.svg"),
             alt: "twitter",
-            href: "/",
+            href: import.meta.env.BASE_URL,
         },
         {
-            src: "/icons/facebook.svg",
+            src: img("icons/facebook.svg"),
             alt: "twitter",
-            href: "/",
+            href: import.meta.env.BASE_URL,
         },
         {
-            src: "/icons/instagram.svg",
+            src: img("icons/instagram.svg"),
             alt: "twitter",
-            href: "/",
+            href: import.meta.env.BASE_URL,
         },
         {
-            src: "/icons/cat.svg",
+            src: img("icons/cat.svg"),
             alt: "twitter",
-            href: "/",
+            href: import.meta.env.BASE_URL,
         },
     ]
     return (
@@ -99,7 +99,7 @@ const Footer = () => {
                             <InputForm 
                             className="footer__banner-wrapper-input"
                             title="Enter your email address"
-                            iconLink = "/icons/latter.svg"
+                            iconLink = {img("icons/latter.svg")}
                             />
                             <Button 
                             title = "Subscribe to Newsletter"
@@ -113,7 +113,7 @@ const Footer = () => {
                 <div className="footer__body">
                     <div className="footer__body-left-side">
                         <Button className="footer__body-logo-button" href="/">
-                            <img src="/icons/logo.svg" alt="Logo" loading="lazy"/>
+                            <img src={img("icons/logo.svg")} alt="Logo" loading="lazy"/>
                         </Button>
                         <p className="footer__body-description">We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
                         <div className="footer__body-soc1als">

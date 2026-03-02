@@ -1,8 +1,8 @@
 const products = [
   {
     id: 0,
-    mainSrc: "/images/products/3.png",
-    src: ["/images/products/3.png","/images/products/3.png","/images/products/3.png"],
+    mainSrc: "images/products/3.png",
+    src: ["images/products/3.png","images/products/3.png","images/products/3.png"],
     title: "Classic Graphic Tee",
     rating: 4.5,
     cost: 220,
@@ -16,8 +16,8 @@ const products = [
   },
   {
     id: 1,
-    mainSrc: "/images/products/4.png",
-    src: ["/images/products/4.png","/images/products/4.png","/images/products/4.png"],
+    mainSrc: "images/products/4.png",
+    src: ["images/products/4.png","images/products/4.png","images/products/4.png"],
     title: "Oversized Cotton Tee",
     rating: 4.1,
     cost: 150,
@@ -31,8 +31,8 @@ const products = [
   },
   {
     id: 2,
-    mainSrc: "/images/products/7.png",
-    src: ["/images/products/7.png","/images/products/7.png","/images/products/7.png"],
+    mainSrc: "images/products/7.png",
+    src: ["images/products/7.png","images/products/7.png","images/products/7.png"],
     title: "Essential Sports Shorts",
     rating: 4.7,
     cost: 190,
@@ -46,8 +46,8 @@ const products = [
   },
   {
     id: 3,
-    mainSrc: "/images/products/9.png",
-    src: ["/images/products/9.png","/images/products/9.png","/images/products/9.png"],
+    mainSrc: "images/products/9.png",
+    src: ["images/products/9.png","images/products/9.png","images/products/9.png"],
     title: "Classic Jogger Pants",
     rating: 4.3,
     cost: 260,
@@ -61,8 +61,8 @@ const products = [
   },
   {
     id: 4,
-    mainSrc: "/images/products/11.png",
-    src: ["/images/products/11.png","/images/products/11.png","/images/products/11.png"],
+    mainSrc: "images/products/11.png",
+    src: ["images/products/11.png","images/products/11.png","images/products/11.png"],
     title: "Urban Oversized Hoodie",
     rating: 4.8,
     cost: 340,
@@ -74,11 +74,11 @@ const products = [
     type: "Hoodie-1",
     dressStyle: "Street"
   },
-  //	http://localhost:5173/Shop-Go/src/Shop-Go/src//images/homePage/star1.png
+  //	http://localhost:5173/Shop-Go/src/Shop-Go/src/images/homePage/star1.png
   {
     id: 5,
-    mainSrc: "/images/products/12.png",
-    src: ["/images/products/12.png","/images/products/12.png","/images/products/12.png"],
+    mainSrc: "images/products/12.png",
+    src: ["images/products/12.png","images/products/12.png","images/products/12.png"],
     title: "Premium Zip Hoodie",
     rating: 4.2,
     cost: 310,
@@ -92,8 +92,8 @@ const products = [
   },
   {
     id: 6,
-    mainSrc: "/images/products/13.png",
-    src: ["/images/products/13.png","/images/products/13.png","/images/products/13.png"],
+    mainSrc: "images/products/13.png",
+    src: ["images/products/13.png","images/products/13.png","images/products/13.png"],
     title: "Slim Fit Jeans",
     rating: 4.9,
     cost: 420,
@@ -107,8 +107,8 @@ const products = [
   },
   {
     id: 7,
-    mainSrc: "/images/products/1.png",
-    src: ["/images/products/1.png","/images/products/1.png","/images/products/1.png"],
+    mainSrc: "images/products/1.png",
+    src: ["images/products/1.png","images/products/1.png","images/products/1.png"],
     title: "Summer Tank Top",
     rating: 4.0,
     cost: 90,
@@ -122,8 +122,8 @@ const products = [
   },
   {
     id: 8,
-    mainSrc: "/images/products/14.png",
-    src: ["/images/products/14.png","/images/products/14.png","/images/products/14.png"],
+    mainSrc: "images/products/14.png",
+    src: ["images/products/14.png","images/products/14.png","images/products/14.png"],
     title: "Soft Fleece Hoodie",
     rating: 4.6,
     cost: 380,
@@ -137,8 +137,8 @@ const products = [
   },
   {
     id: 9,
-    mainSrc: "/images/products/2.png",
-    src: ["/images/products/2.png","/images/products/2.png","/images/products/2.png"],
+    mainSrc: "images/products/2.png",
+    src: ["images/products/2.png","images/products/2.png","images/products/2.png"],
     title: "Premium Polo Shirt",
     rating: 4.4,
     cost: 210,
@@ -152,11 +152,11 @@ const products = [
   },
   {
     id: 10,
-    mainSrc: "/images/products/10.png",
+    mainSrc: "images/products/10.png",
     src: [
-      "/images/products/10.png",
-      "/images/products/11.png",
-      "/images/products/12.png"
+      "images/products/10.png",
+      "images/products/11.png",
+      "images/products/12.png"
     ],
     title: "Urban Fit Heather Tee",
     rating: 4.5,
@@ -171,11 +171,11 @@ const products = [
   },
   {
     id: 11,
-    mainSrc: "/images/products/11.png",
+    mainSrc: "images/products/11.png",
     src: [
-      "/images/products/11.png",
-      "/images/products/12.png",
-      "/images/products/13.png"
+      "images/products/11.png",
+      "images/products/12.png",
+      "images/products/13.png"
     ],
     title: "Essential Cotton Tee",
     rating: 3.8,
@@ -190,11 +190,11 @@ const products = [
   },
   {
     id: 12,
-    mainSrc: "/images/products/12.png",
+    mainSrc: "images/products/12.png",
     src: [
-      "/images/products/12.png",
-      "/images/products/13.png",
-      "/images/products/14.png"
+      "images/products/12.png",
+      "images/products/13.png",
+      "images/products/14.png"
     ],
     title: "Premium Oversize Tee",
     rating: 4.6,
@@ -209,11 +209,11 @@ const products = [
   },
   {
     id: 13,
-    mainSrc: "/images/products/13.png",
+    mainSrc: "images/products/13.png",
     src: [
-      "/images/products/13.png",
-      "/images/products/14.png",
-      "/images/products/15.png"
+      "images/products/13.png",
+      "images/products/14.png",
+      "images/products/15.png"
     ],
     title: "SportTech Performance Tee",
     rating: 4.0,
@@ -228,11 +228,11 @@ const products = [
   },
   {
     id: 14,
-    mainSrc: "/images/products/14.png",
+    mainSrc: "images/products/14.png",
     src: [
-      "/images/products/14.png",
-      "/images/products/15.png",
-      "/images/products/1.png"
+      "images/products/14.png",
+      "images/products/15.png",
+      "images/products/1.png"
     ],
     title: "Streetwear Bold Tee",
     rating: 4.2,
@@ -247,11 +247,11 @@ const products = [
   },
   {
     id: 15,
-    mainSrc: "/images/products/15.png",
+    mainSrc: "images/products/15.png",
     src: [
-      "/images/products/15.png",
-      "/images/products/1.png",
-      "/images/products/1.png"
+      "images/products/15.png",
+      "images/products/1.png",
+      "images/products/1.png"
     ],
     title: "Minimal Essential Tee",
     rating: 3.9,
@@ -266,11 +266,11 @@ const products = [
   },
   {
     id: 16,
-    mainSrc: "/images/products/1.png",
+    mainSrc: "images/products/1.png",
     src: [
-      "/images/products/1.png",
-      "/images/products/1.png",
-      "/images/products/2.png"
+      "images/products/1.png",
+      "images/products/1.png",
+      "images/products/2.png"
     ],
     title: "Classic Fit Tee",
     rating: 4.4,
@@ -285,11 +285,11 @@ const products = [
   },
   {
     id: 17,
-    mainSrc: "/images/products/1.png",
+    mainSrc: "images/products/1.png",
     src: [
-      "/images/products/1.png",
-      "/images/products/2.png",
-      "/images/products/3.png"
+      "images/products/1.png",
+      "images/products/2.png",
+      "images/products/3.png"
     ],
     title: "Retro Print Tee",
     rating: 4.1,
@@ -304,11 +304,11 @@ const products = [
   },
   {
     id: 18,
-    mainSrc: "/images/products/2.png",
+    mainSrc: "images/products/2.png",
     src: [
-      "/images/products/2.png",
-      "/images/products/3.png",
-      "/images/products/4.png"
+      "images/products/2.png",
+      "images/products/3.png",
+      "images/products/4.png"
     ],
     title: "Active DryFit Tee",
     rating: 4.7,
@@ -323,11 +323,11 @@ const products = [
   },
   {
     id: 19,
-    mainSrc: "/images/products/3.png",
+    mainSrc: "images/products/3.png",
     src: [
-      "/images/products/3.png",
-      "/images/products/4.png",
-      "/images/products/5.png"
+      "images/products/3.png",
+      "images/products/4.png",
+      "images/products/5.png"
     ],
     title: "SoftTouch Lounge Tee",
     rating: 4.3,
@@ -342,11 +342,11 @@ const products = [
   },
   {
     id: 20,
-    mainSrc: "/images/products/4.png",
+    mainSrc: "images/products/4.png",
     src: [
-      "/images/products/4.png",
-      "/images/products/5.png",
-      "/images/products/6.png"
+      "images/products/4.png",
+      "images/products/5.png",
+      "images/products/6.png"
     ],
     title: "Daily Comfort Tee",
     rating: 4.2,
@@ -361,11 +361,11 @@ const products = [
   },
   {
     id: 21,
-    mainSrc: "/images/products/5.png",
+    mainSrc: "images/products/5.png",
     src: [
-      "/images/products/5.png",
-      "/images/products/6.png",
-      "/images/products/7.png"
+      "images/products/5.png",
+      "images/products/6.png",
+      "images/products/7.png"
     ],
     title: "Classic Round Neck Tee",
     rating: 3.7,
@@ -380,11 +380,11 @@ const products = [
   },
   {
     id: 22,
-    mainSrc: "/images/products/6.png",
+    mainSrc: "images/products/6.png",
     src: [
-      "/images/products/6.png",
-      "/images/products/7.png",
-      "/images/products/8.png"
+      "images/products/6.png",
+      "images/products/7.png",
+      "images/products/8.png"
     ],
     title: "Ultra Breathable Mesh Tee",
     rating: 4.6,
@@ -399,11 +399,11 @@ const products = [
   },
   {
     id: 23,
-    mainSrc: "/images/products/7.png",
+    mainSrc: "images/products/7.png",
     src: [
-      "/images/products/7.png",
-      "/images/products/8.png",
-      "/images/products/9.png"
+      "images/products/7.png",
+      "images/products/8.png",
+      "images/products/9.png"
     ],
     title: "ColorBlock Street Tee",
     rating: 4.3,
@@ -418,11 +418,11 @@ const products = [
   },
   {
     id: 24,
-    mainSrc: "/images/products/8.png",
+    mainSrc: "images/products/8.png",
     src: [
-      "/images/products/8.png",
-      "/images/products/9.png",
-      "/images/products/10.png"
+      "images/products/8.png",
+      "images/products/9.png",
+      "images/products/10.png"
     ],
     title: "Soft-Touch Cotton Tee",
     rating: 4.0,
@@ -437,11 +437,11 @@ const products = [
   },
   {
     id: 25,
-    mainSrc: "/images/products/9.png",
+    mainSrc: "images/products/9.png",
     src: [
-      "/images/products/9.png",
-      "/images/products/10.png",
-      "/images/products/11.png"
+      "images/products/9.png",
+      "images/products/10.png",
+      "images/products/11.png"
     ],
     title: "GymFlex Training Tee",
     rating: 4.5,
@@ -456,11 +456,11 @@ const products = [
   },
   {
     id: 26,
-    mainSrc: "/images/products/10.png",
+    mainSrc: "images/products/10.png",
     src: [
-      "/images/products/10.png",
-      "/images/products/11.png",
-      "/images/products/12.png"
+      "images/products/10.png",
+      "images/products/11.png",
+      "images/products/12.png"
     ],
     title: "Urban SlimFit Tee",
     rating: 3.9,
@@ -475,11 +475,11 @@ const products = [
   },
   {
     id: 27,
-    mainSrc: "/images/products/11.png",
+    mainSrc: "images/products/11.png",
     src: [
-      "/images/products/11.png",
-      "/images/products/12.png",
-      "/images/products/13.png"
+      "images/products/11.png",
+      "images/products/12.png",
+      "images/products/13.png"
     ],
     title: "ChillMode Oversize Tee",
     rating: 4.4,
@@ -494,11 +494,11 @@ const products = [
   },
   {
     id: 28,
-    mainSrc: "/images/products/12.png",
+    mainSrc: "images/products/12.png",
     src: [
-      "/images/products/12.png",
-      "/images/products/13.png",
-      "/images/products/14.png"
+      "images/products/12.png",
+      "images/products/13.png",
+      "images/products/14.png"
     ],
     title: "Performance Aero Tee",
     rating: 4.7,
@@ -513,11 +513,11 @@ const products = [
   },
   {
     id: 29,
-    mainSrc: "/images/products/13.png",
+    mainSrc: "images/products/13.png",
     src: [
-      "/images/products/13.png",
-      "/images/products/14.png",
-      "/images/products/15.png"
+      "images/products/13.png",
+      "images/products/14.png",
+      "images/products/15.png"
     ],
     title: "Retro Classic Stripe Tee",
     rating: 4.1,
@@ -532,11 +532,11 @@ const products = [
   },
   {
     id: 30,
-    mainSrc: "/images/products/14.png",
+    mainSrc: "images/products/14.png",
     src: [
-      "/images/products/14.png",
-      "/images/products/15.png",
-      "/images/products/1.png"
+      "images/products/14.png",
+      "images/products/15.png",
+      "images/products/1.png"
     ],
     title: "ActiveDry Running Tee",
     rating: 4.6,
@@ -551,11 +551,11 @@ const products = [
   },
   {
     id: 31,
-    mainSrc: "/images/products/15.png",
+    mainSrc: "images/products/15.png",
     src: [
-      "/images/products/15.png",
-      "/images/products/1.png",
-      "/images/products/1.png"
+      "images/products/15.png",
+      "images/products/1.png",
+      "images/products/1.png"
     ],
     title: "PureSoft Essential Tee",
     rating: 4.0,
@@ -570,11 +570,11 @@ const products = [
   },
   {
     id: 32,
-    mainSrc: "/images/products/1.png",
+    mainSrc: "images/products/1.png",
     src: [
-      "/images/products/1.png",
-      "/images/products/1.png",
-      "/images/products/2.png"
+      "images/products/1.png",
+      "images/products/1.png",
+      "images/products/2.png"
     ],
     title: "StreetMotion Oversize Tee",
     rating: 4.3,
@@ -589,11 +589,11 @@ const products = [
   },
   {
     id: 33,
-    mainSrc: "/images/products/1.png",
+    mainSrc: "images/products/1.png",
     src: [
-      "/images/products/1.png",
-      "/images/products/2.png",
-      "/images/products/3.png"
+      "images/products/1.png",
+      "images/products/2.png",
+      "images/products/3.png"
     ],
     title: "Vibe Graphic Tee",
     rating: 4.7,
@@ -608,11 +608,11 @@ const products = [
   },
   {
     id: 34,
-    mainSrc: "/images/products/2.png",
+    mainSrc: "images/products/2.png",
     src: [
-      "/images/products/2.png",
-      "/images/products/3.png",
-      "/images/products/4.png"
+      "images/products/2.png",
+      "images/products/3.png",
+      "images/products/4.png"
     ],
     title: "Classic Fit Crew Tee",
     rating: 3.8,
@@ -627,11 +627,11 @@ const products = [
   },
   {
     id: 35,
-    mainSrc: "/images/products/3.png",
+    mainSrc: "images/products/3.png",
     src: [
-      "/images/products/3.png",
-      "/images/products/4.png",
-      "/images/products/5.png"
+      "images/products/3.png",
+      "images/products/4.png",
+      "images/products/5.png"
     ],
     title: "AirFlex Training Tee",
     rating: 4.5,
@@ -646,11 +646,11 @@ const products = [
   },
   {
     id: 36,
-    mainSrc: "/images/products/4.png",
+    mainSrc: "images/products/4.png",
     src: [
-      "/images/products/4.png",
-      "/images/products/5.png",
-      "/images/products/6.png"
+      "images/products/4.png",
+      "images/products/5.png",
+      "images/products/6.png"
     ],
     title: "RelaxFit Lounge Tee",
     rating: 4.1,
@@ -665,11 +665,11 @@ const products = [
   },
   {
     id: 37,
-    mainSrc: "/images/products/5.png",
+    mainSrc: "images/products/5.png",
     src: [
-      "/images/products/5.png",
-      "/images/products/6.png",
-      "/images/products/7.png"
+      "images/products/5.png",
+      "images/products/6.png",
+      "images/products/7.png"
     ],
     title: "TurboDry Sport Tee",
     rating: 4.8,
@@ -684,11 +684,11 @@ const products = [
   },
   {
     id: 38,
-    mainSrc: "/images/products/6.png",
+    mainSrc: "images/products/6.png",
     src: [
-      "/images/products/6.png",
-      "/images/products/7.png",
-      "/images/products/8.png"
+      "images/products/6.png",
+      "images/products/7.png",
+      "images/products/8.png"
     ],
     title: "UrbanBold Heavyweight Tee",
     rating: 4.2,
@@ -703,11 +703,11 @@ const products = [
   },
   {
     id: 39,
-    mainSrc: "/images/products/7.png",
+    mainSrc: "images/products/7.png",
     src: [
-      "/images/products/7.png",
-      "/images/products/8.png",
-      "/images/products/9.png"
+      "images/products/7.png",
+      "images/products/8.png",
+      "images/products/9.png"
     ],
     title: "Breeze Lite Tee",
     rating: 4.0,

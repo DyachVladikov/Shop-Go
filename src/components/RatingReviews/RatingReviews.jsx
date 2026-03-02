@@ -2,6 +2,7 @@ import { useState, useRef } from "react"
 import Button from "../Button"
 import Comment from "../Comment"
 import "./RatingReviews.scss"
+import { img } from "@/modules/RepairImgSrc"
 
 const RatingReviews = (props) => {
 
@@ -54,7 +55,7 @@ const RatingReviews = (props) => {
                     isLabelHidden
                     className = "rating-reviews__header-actions--options"
                     onlyIcon
-                    iconLink = "/icons/options.svg"
+                    iconLink = {img("icons/options.svg")}
                     type = "button"
                     onClick = {() => {}}
                     mode = "gray"

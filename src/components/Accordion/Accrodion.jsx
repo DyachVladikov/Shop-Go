@@ -2,6 +2,7 @@ import classNames from "classnames"
 import "./Accrodion.scss"
 import Button from "../Button"
 import { useState } from "react"
+import { img } from "@/modules/RepairImgSrc"
 
 const Accrodion = (props) => {
 
@@ -14,7 +15,7 @@ const Accrodion = (props) => {
         onClose,
     } = props
 
-    const currentIcon = isNeedToHide ? "/icons/arrow-down.svg" : "/icons/options.svg"
+    const currentIcon = isNeedToHide ? img("icons/arrow-down.svg") : img("icons/options.svg")
 
     const [isAccordionOpen, setIsAccordionOpen] = useState(true);
 

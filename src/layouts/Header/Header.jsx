@@ -32,21 +32,23 @@ const Header = () => {
     const navigationList = [
         {
             label: "Shop",
-            href: "/shop/casual",
+            href: `shop` , //location.pathname == `shop/casual` ? '' : `shop/casual`
         },
          {
             label: "On Scale",
-            href: "/"
+            href: import.meta.env.BASE_URL
         },
          {
             label: "New Arrivals",
-            href: "/"
+            href: import.meta.env.BASE_URL
         },
          {
             label: "Brands",
-            href: "/"
+            href: import.meta.env.BASE_URL
         },
     ]
+    
+    
 
     function CloseSignForm() {
         setisReg(false)
@@ -56,7 +58,7 @@ const Header = () => {
         setIsModalOpen(prev => !prev)
     }
     const onBasketClick = () => {
-        navigate("/order")
+        navigate(`order`)
     }
     
     
@@ -78,7 +80,7 @@ const Header = () => {
                             <ul className="header__modal-navigation-list">
                                 {navigationList.map((navigationItem, index) => (
                                     <li className="header__modal-navigation-item" key={index}>
-                                        <Button className="header__navigation-link" {...navigationItem} type="button">
+                                        <Button islInk className="header__navigation-link" {...navigationItem} type="button" onClick={() => navigate(navigationItem.href)}>
                                         </Button>
                                     </li>
                                 ))}
@@ -92,7 +94,7 @@ const Header = () => {
                                     <div className="header__signUp-title">
                                     <span>Sign up and get 20% off to your first order.</span>
                                     <Button className="header__signUp--link" 
-                                    href="/" 
+                                    href={import.meta.env.BASE_URL} 
                                     label="Sign Up Now"
                                     title="sign"
                                     />
@@ -119,13 +121,13 @@ const Header = () => {
                             type="button" 
                             isLabelHidden
                             title="open"   
-                            iconLink = "/src/assets/icons/burgerButton.svg"
+                            iconLink = {img("icons/burgerButton.svg")}
                             onlyIcon
                             onClick = {closeModal}
                             />
                             <div className="header__logo">
-                                <Button className="header__logo-button" href="/">
-                                    <img src={"/icons/logo.svg"} alt="Logo" loading="lazy"/>
+                                <Button islInk  className="header__logo-button" onClick={() => navigate('')}>
+                                    <img src={img("icons/logo.svg")} alt="Logo" loading="lazy" />
                                 </Button>
                                 
                             </div>
@@ -134,7 +136,7 @@ const Header = () => {
                             <ul className="header__navigation-list">
                                 {navigationList.map((navigationItem, index) => (
                                     <li className="header__navigation-item" key={index}>
-                                        <Button className="header__navigation-link" {...navigationItem} type="button">
+                                        <Button islInk className="header__navigation-link" {...navigationItem} type="button" onClick={() => navigate(navigationItem.href)}>
                                         </Button>
                                     </li>
                                 ))}
@@ -142,17 +144,17 @@ const Header = () => {
                         </nav>
                         <div className="header__actions">
                             <InputForm className="header__actions-search hidden-mobile" 
-                            iconLink = "/icons/search.svg" 
+                            iconLink = {img("icons/search.svg")}
                             title = "Search for products..."/>
                             <div className="header__actions-icons">
                                 <Button className="search-button visible-mobile"
                                 onlyIcon 
-                                iconLink ="/icons/search-black.svg"
+                                iconLink ={img("icons/search-black.svg")}
                                 type="button"
                                 isLabelHidden />
                                 <Button className="header__actions-basket-button"
                                 onlyIcon 
-                                iconLink ="/icons/basket.svg"
+                                iconLink ={img("icons/basket.svg")}
                                 type="button"
                                 isLabelHidden 
                                 onClick={() => {
@@ -166,7 +168,7 @@ const Header = () => {
                                 
                                 <Button className="user-button"
                                 onlyIcon 
-                                iconLink ="/icons/user.svg"
+                                iconLink ={img("icons/user.svg")}
                                 type="button"
                                 isLabelHidden />
                             </div>

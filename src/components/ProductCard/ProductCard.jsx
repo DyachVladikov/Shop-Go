@@ -24,7 +24,7 @@ const ProductCard = (props) => {
         <Link className={classNames("product-card", `product-card-${className}`)}
             to={`/productdetails/${id}`}
         >
-            <img className="product-card__image" src={src[0]} />
+            <img className="product-card__image" src={`${import.meta.env.BASE_URL}${src[0]}`} />
             <h5 className="product-card__label">{title}</h5>
             <RatingView value = {rating}/>
             <ProductCost cost={cost} discount={discount} />

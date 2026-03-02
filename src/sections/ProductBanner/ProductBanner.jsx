@@ -8,6 +8,7 @@ import Button from "@/components/Button"
 import productsItems from "/src/collections/products/products.js"
 import Sizes from "@/components/Sizes";
 import { CountProductsContent } from "@/context/countProductsContext";
+import { img } from "@/modules/RepairImgSrc"
 
 const ProductBanner = () => {
    
@@ -108,7 +109,7 @@ const ProductBanner = () => {
                                         <li className="product-banner__card-aside-item" key={index}>
                                         <button id={index}
                                         className = "product-banner__card-aside-button" 
-                                        style={{backgroundImage: `url(${currentSrc})`}} 
+                                        style={{backgroundImage: `url(${import.meta.env.BASE_URL}${currentSrc})`}} 
                                         onClick={() => {
                                             setIndexMainSrc(index)
                                         }}
@@ -120,7 +121,7 @@ const ProductBanner = () => {
                     </div>
                     <div className="product-banner__card-main">
                         <img className="product-banner__card-image" 
-                        src={product.src[indexMainSrc]} />
+                        src={img(product.src[indexMainSrc])} />
                     </div>
                 </div>
                 <div className="product-banner__description">
@@ -168,7 +169,7 @@ const ProductBanner = () => {
                                         setCountProducts(countProducts - 1)
                                 })}
                                 onlyIcon = {true}
-                                iconLink = "/src/assets/icons/minus.svg"
+                                iconLink = {img("icons/minus.svg")}
                             />
                             <span className="product-banner__actions-count-label">{countProducts}</span>
                             <Button 
@@ -181,7 +182,7 @@ const ProductBanner = () => {
                                         setCountProducts(countProducts + 1)
                                 })}
                                 onlyIcon = {true}
-                                iconLink = "/src/assets/icons/plus.svg"
+                                iconLink = {img("icons/plus.svg")}
                             />
                         </div>
                         <Button 

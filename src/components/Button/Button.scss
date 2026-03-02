@@ -24,6 +24,21 @@
 
             
     }
+    &-link {
+        border: none;
+        background-color: transparent;
+        width: auto;
+        height: auto;
+        text-align: center;
+        padding: 0;
+
+        @include hover {
+            background: transparent !important;
+            transform: scale(1.1);
+            color: var(--color-black)  red !important;
+        }
+
+    }
     
     &--black {
             background: var(--color-black);

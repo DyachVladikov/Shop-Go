@@ -67,10 +67,8 @@
                 padding: 5px 20px;
                 transition-duration: var(--transition-duration);
 
-
-                @include hover {
-                    background: var(--color-black);
-                    color: white;
+                & > button {
+                    margin-inline: auto;
                 }
             }
 

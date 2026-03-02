@@ -36,6 +36,7 @@
         @include tablet {
             padding-inline: 50px;
         }
+        
         @include mobile {
             padding-inline: 16px;
         }
@@ -76,7 +77,9 @@
             @include middle {
                 column-gap: 50px;
             }
-
+            @include laptop {
+                column-gap: 75px;    
+            }
             @include tablet {
                 flex-direction: column;
                 height: 294px;

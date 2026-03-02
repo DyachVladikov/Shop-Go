@@ -6,15 +6,19 @@ import people1 from '@/assets/images/homePage/people1.jpg';
 import star1 from '@/assets/images/homePage/star1.png';
 import star2 from '@/assets/images/homePage/star2.png';
 
-import develper1 from "/src/assets/images/homePage/developers/1.png"
-import develper2 from "/src/assets/images/homePage/developers/2.png"
-import develper3 from "/src/assets/images/homePage/developers/3.png"
-import develper4 from "/src/assets/images/homePage/developers/4.png"
-import develper5 from "/src/assets/images/homePage/developers/5.png"
+import { useNavigate } from "react-router-dom";
+
+import develper1 from "@/assets/images/homePage/developers/1.png"
+import develper2 from "@/assets/images/homePage/developers/2.png"
+import develper3 from "@/assets/images/homePage/developers/3.png"
+import develper4 from "@/assets/images/homePage/developers/4.png"
+import develper5 from "@/assets/images/homePage/developers/5.png"
 
 
 
 const Banner = () => {
+
+    const navigate = useNavigate()
 
     const Tags = [
         {
@@ -51,7 +55,9 @@ const Banner = () => {
                 label = "Shop Now"
                 type = "link"
                 mode = "black"
-                href = "/shop/casual"
+                onClick = {() => {
+                    navigate(`shop`)
+                }}
                 />
                 <div className="banner__body-tags">
                     {Tags.map((tag, index) => (

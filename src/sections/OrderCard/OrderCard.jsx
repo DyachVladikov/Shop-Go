@@ -4,13 +4,16 @@ import Button from "@/components/Button"
 import ProductOrdered from "@/components/ProductOrdered"
 import InputForm from "@/components/InputForm"
 import { useCallback, useContext, useEffect, useState } from "react"
-import { Link,} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { CountProductsContent } from "@/context/countProductsContext"
 import products from "@/collections/products/products"
 import  { BasketCotrollerContext } from "@/context/basketControllerContext"
+import { img } from "@/modules/RepairImgSrc"
 
 
 const OrderCard = () => {
+
+    const navigate = useNavigate()
 
     const titles = ["Subtotal","Discount", "Devileryy Fee"]
 
@@ -95,7 +98,9 @@ const OrderCard = () => {
                             label = "Shop Now"
                             type = "link"
                             mode = "black"
-                            href = "/shop/casual"
+                            onClick={() => {
+                                navigate(`shop`)
+                            }}
                             />
                         </div>
                         
@@ -123,7 +128,7 @@ const OrderCard = () => {
                             <InputForm 
                             className="order-card__summary-footer-input" 
                             title="Add promo code"
-                            iconLink = "/src/assets/icons/promo.svg"
+                            iconLink = {img("icons/promo.svg")}
                             id="promo"
                             />
                             <Button 
@@ -138,7 +143,7 @@ const OrderCard = () => {
                     </div>
                     <Button 
                     title = "Go to checkout"
-                    iconLink ="/src/assets/icons/checkout.svg"
+                    iconLink ={"icons/checkout.svg"}
                     className="order-card__summary-submit-button"
                     label ="Go to checkout"
                     type = "submit"

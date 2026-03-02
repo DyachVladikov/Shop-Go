@@ -3,6 +3,8 @@ import "./Select.scss"
 import Button from "../Button"
 import { useState } from "react"
 
+import { img } from "@/modules/RepairImgSrc"
+
 const Select = (props) => {
 
     const {
@@ -16,7 +18,7 @@ const Select = (props) => {
         onClickOption
     } = props
 
-    const arrowLeftLink = "/src/assets/icons/select-arrow-right.svg"
+    const arrowLeftLink = img("icons/select-arrow-right.svg")
 
     const [currentLabel, setCurrentLabel] = useState(label)
 

@@ -28,7 +28,7 @@ const RatingView = (props) => {
                  {"rating-view__stars--banner" : className === "banner"}
             )}>
                 <img className="rating-view__stars-filled" 
-                src="/icons/stars.svg"
+                src={img("icons/stars.svg")}
                 width={98}
                 height={18}
                 alt=""/>

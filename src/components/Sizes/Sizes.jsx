@@ -17,10 +17,10 @@ const Sizes = memo((props) => {
                         className = {classNames("sizes__item-button", {'is-active': onSizeChoose === undefined ? isActiveSize === size: selectedSizes.includes(size)})}
                         label = {size}
                         type = "button"
-                        onClick = {(() => {
+                        onClick = {() => {
                             setIsActiveSize(size)
                             onSizeChange(size)
-                        })}
+                        }}
                         mode = "sizes"
                         />
                  </li>

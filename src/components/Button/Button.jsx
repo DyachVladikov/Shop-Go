@@ -15,11 +15,12 @@ const Button = (props) => {
         type,
         onClick,
         children,
+        islInk,
         isIconBefore, // "before" || "after" || "null"
         mode, // "small" || "modal" || "black" || slider || sizes || gray // {param, value}
     } = props
 
-    const Component = href != undefined ? "a" : "button"
+    const Component = href != undefined ? "button" : "button"
     const linkProps = Component === "a" ? {href} : [""]
     const buttonProps = Component === "button" ? {type, onClick, } : [""]
     const currentProps = Component === "a" ? linkProps : buttonProps
@@ -32,7 +33,7 @@ const Button = (props) => {
         <Component
         {...currentProps}
         className={classNames(
-            ComponentName, className, {"button__icon" : onlyIcon}, {[`button--${mode}`] : mode}
+            ComponentName, className, {"button__icon" : onlyIcon}, {"button-link" : islInk}, {[`button--${mode}`] : mode}
         )}
         title={title}
         >

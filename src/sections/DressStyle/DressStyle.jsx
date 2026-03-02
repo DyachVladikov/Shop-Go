@@ -1,4 +1,5 @@
 import "./DressStyle.scss"
+import {img} from "@/modules/RepairImgSrc"
 
 const DressStyle = () => {
 
@@ -6,26 +7,26 @@ const DressStyle = () => {
         {
             label: "Casual",
             id: "el1",
-            imgSrc: "/src/assets/images/homePage/styleBanner/1.png",
-            href: "/shop/casual",
+            imgSrc: img("images/homePage/styleBanner/1.png"),
+            href: "shop/casual",
         },
         {
             label: "Formal",
             id: "el2",
-            imgSrc: "/src/assets/images/homePage/styleBanner/2.png",
-            href: "/shop/formal",
+            imgSrc: img("images/homePage/styleBanner/2.png"),
+            href: "shop/formal",
         },
         {
             label: "Party",
             id: "el3",
-            imgSrc: "/src/assets/images/homePage/styleBanner/3.png",
-            href: "/shop/party",
+            imgSrc: img("images/homePage/styleBanner/3.png"),
+            href: "shop/party",
         },
         {
             label: "Gym",
             id: "el4",
-            imgSrc: "/src/assets/images/homePage/styleBanner/4.png",
-            href: "/shop/gym",
+            imgSrc: img("images/homePage/styleBanner/4.png"),
+            href: "shop/gym",
         },
     ]
     return (

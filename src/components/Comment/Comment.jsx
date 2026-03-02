@@ -2,6 +2,7 @@ import classNames from "classnames"
 import RatingView from "../RatingView"
 import "./Comment.scss"
 import Button from "../Button"
+import { img } from "@/modules/RepairImgSrc"
 
 const Comment = (props) => {
 
@@ -24,7 +25,7 @@ const Comment = (props) => {
                     title = "options"
                     isLabelHidden
                     onlyIcon
-                    iconLink = "/icons/points.svg"
+                    iconLink = {img("icons/points.svg")}
                     className = "comment__button-options"
                     type = "button"
                     onClick = {() => {}} />

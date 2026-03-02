@@ -3,6 +3,7 @@ import Slider from "@/components/Slider"
 import Button from "@/components/Button";
 import { createSwiperConfig } from "@/modules/SwiperConfig";
 import { Navigation, } from "swiper/modules";
+import { img } from "@/modules/RepairImgSrc";
 
 const Customers = () => {
 
@@ -106,7 +107,7 @@ const Customers = () => {
                     title = "prev-slide"
                     isLabelHidden
                     onlyIcon
-                    iconLink = "/src/assets/icons/arrow-prev.svg"
+                    iconLink = {img("icons/arrow-prev.svg")}
                     type = "button"
                     mode = "slider"
                     />
@@ -115,7 +116,7 @@ const Customers = () => {
                     title = "next-slide"
                     isLabelHidden
                     onlyIcon
-                    iconLink = "/src/assets/icons/arrow-next.svg"
+                    iconLink = {img("icons/arrow-next.svg")}
                     type = "button"
                     mode = "slider"
                     />

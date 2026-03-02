@@ -92,7 +92,7 @@ const ProductOrdered = (props) => {
                     title = "Delete"
                     isLabelHidden
                     onlyIcon
-                    iconLink = "/src/assets/icons/trash.svg"
+                    iconLink = {img("icons/trash.svg")}
                     className = "product-ordered__actions-delete-button"
                     type = "button"
                     onClick = {() => {
@@ -121,7 +121,7 @@ const ProductOrdered = (props) => {
                                     }}
                                     
                                     onlyIcon = {true}
-                                    iconLink = "/src/assets/icons/minus.svg"
+                                    iconLink = {img("icons/minus.svg")}
                                 />
                                 <span className="product-banner__actions-count-label">{productCount}</span>
                                 <Button 
@@ -134,7 +134,7 @@ const ProductOrdered = (props) => {
                                         SaveLocalStorage(1)
                                     }}
                                     onlyIcon = {true}
-                                    iconLink = "/src/assets/icons/plus.svg"
+                                    iconLink = {img("icons/plus.svg")}
                                 />
                     </div>
                 </div>

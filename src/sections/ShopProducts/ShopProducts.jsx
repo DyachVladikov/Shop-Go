@@ -13,18 +13,16 @@ import {createSwiperConfig} from "@/modules/SwiperConfig"
 import { Navigation, Grid, Pagination} from "swiper/modules";
 import classNames from "classnames"
 import NavigationProduct from "@/components/NavigationProduct"
+import { img } from "@/modules/RepairImgSrc"
 
 const ShopProducts = () => {
-    const { category } = useParams();
     
 
     const [indexSelectExpanded, setIndexSelectExpanded] = useState(null)
     const [isFiltersVisibleMobile, setIsFiltersVisibleMobile] = useState(false)
     const [viewportWidth, SetviewportWidth] = useState(null)
-    const [currentNameCategory, setCurrentNameCategory] = useState(category
-        .charAt(0).toUpperCase() + category.slice(1))
-    const [navigationPath, setNavigationPath] = useState([category
-        .charAt(0).toUpperCase() + category.slice(1)])
+    const [currentNameCategory, setCurrentNameCategory] = useState("")
+    const [navigationPath, setNavigationPath] = useState([])
     const [filterOptions, setFilterOptions] = useState({
         type: "",
         minPrice: 0,
@@ -330,7 +328,7 @@ const ShopProducts = () => {
                         isNeedToHide
                         title = "Sizes"
                         >
-                            <Sizes sizes={sizes} onSizeChoose={onSizeChoose} selectedSizes ={filterOptions.sizes}/>
+                            <Sizes sizes={sizes} onSizeChoose={onSizeChoose} onSizeChange={onSizeChoose} selectedSizes ={filterOptions.sizes}/>
                         </Accrodion>
                     </div>
                     <div className="shop-products__filters-styles">
@@ -376,7 +374,7 @@ const ShopProducts = () => {
                             title = "Filters"
                             isLabelHidden
                             onlyIcon = {true}
-                            iconLink = "/src/assets/icons/filters.svg"
+                            iconLink = {img("icons/filters.svg")}
                             className = "shop-products__filters-button visible-tablet"
                             type = "button"
                             onClick = {SwitchVisible}
@@ -395,7 +393,7 @@ const ShopProducts = () => {
                         <div className="shop-products__actions">
                             <Button 
                             title = "previous slide"
-                            iconLink = "/src/assets/icons/arrow-prev.svg"
+                            iconLink = {"icons/arrow-prev.svg"}
                             className = "shop-products__actions-prev swiper-prev"
                             label = "Previous"
                             type = "button"
@@ -404,7 +402,7 @@ const ShopProducts = () => {
                             <div className="shop-products__actions-pagination swiper-pagination"></div>
                             <Button 
                             title = "next slide"
-                            iconLink = "/src/assets/icons/arrow-next.svg"
+                            iconLink = {"icons/arrow-next.svg"}
                             className = "shop-products__actions-next swiper-next"
                             label = "Next"
                             type = "button"
